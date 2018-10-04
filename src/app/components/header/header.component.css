@@ -39,3 +39,21 @@ p {
   align-items: center;
   justify-content: center;
 }
+
+@media( max-width: 730px ) {
+  .headerContainer {
+    padding: 15px;
+    display: block;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+}

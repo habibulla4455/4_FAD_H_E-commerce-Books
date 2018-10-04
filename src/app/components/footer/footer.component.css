@@ -1,12 +1,13 @@
 footer {
-  border-top: 3px solid black;
+  border-top: 1px solid black;
 }
 
 .footerContainer {
   margin: 0 10px;
-  padding-top: 25px;
+  padding-top: 15px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 p {
@@ -35,4 +36,20 @@ p {
 .btn4 {
   background-image: url("http://t2marketinginternational.com/wp-content/uploads/2018/06/Github-Logo.png");
   background-size: 30px 30px;
+}
+
+@media( max-width: 730px ) {
+  .footerContainer {
+    display: block;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
 }

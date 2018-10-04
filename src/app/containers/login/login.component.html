@@ -1,14 +1,39 @@
-<form (ngSubmit)="login(formData)" #formData="ngForm">
-  <div>
-    <label>
-      E-mail
-      <input ngModel type="email" name="email" required>
-    </label>
-    <label>
-      Password
-      <input ngModel type="password" name="password" required>
-    </label>
-    <button type="submit" [disabled]="formData.invalid">Log in</button>
-    <button type="button" [disabled]="formData.invalid" (click)="signUp(formData)">Register</button>
+<div class="container">
+  <div class="loginContainer">
+    <div class="loginForm">
+      <h2>Log in to the website</h2>
+      <form (ngSubmit)="login(formData)" #formData="ngForm">
+        <label>
+          <span class="formPosition">E-mail</span>
+          <input ngModel type="email" name="email" required>
+        </label>
+        <label>
+          <span class="formPosition">Password</span>
+          <input ngModel type="password" name="password" required>
+        </label>
+        <button type="submit" [disabled]="formData.invalid">Log in</button>
+      </form>
+    </div>
+    <div class="loginForm">
+      <div>
+        <h2>Don't have an account?</h2>
+        <h2> Register here.</h2>
+        <form (ngSubmit)="signUp(formDataRegister)" #formDataRegister="ngForm" class="registerForm">
+          <label>
+            <span class="formPosition">E-mail</span>
+            <input ngModel type="email" name="email" required>
+          </label>
+          <label>
+            <span class="formPosition">Password</span>
+            <input ngModel type="password" name="password" required>
+          </label>
+          <label>
+            <span class="formPosition">Repeat password</span>
+            <input ngModel type="password" name="passwordRepeat" required>
+          </label>
+          <button type="submit" [disabled]="formDataRegister.invalid">Sign Up</button>
+        </form>
+      </div>
+    </div>
   </div>
-</form>
+</div>

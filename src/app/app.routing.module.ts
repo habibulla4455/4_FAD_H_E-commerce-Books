@@ -3,11 +3,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {BooklistComponent} from './booklist/booklist.component';
 import {AddBookComponent} from './add-book/add-book.component';
 import {LoginComponent} from './login/login.component';
+import {AuthGuardService} from './services/auth-guard.service';
+
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/books', pathMatch: 'full'},
   {path: 'books', component: BooklistComponent},
-  {path: 'addbook', component: AddBookComponent},
+  {path: 'addbook', component: AddBookComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent}
 ];
 

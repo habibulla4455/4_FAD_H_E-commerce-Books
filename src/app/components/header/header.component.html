@@ -1,0 +1,22 @@
+<header>
+  <div class="container">
+    <div class="headerContainer">
+    <h1>BOOKSBASE</h1>
+    <p *ngIf="authService.user">Welcome {{authService.user.email}}</p>
+    <ul>
+      <li>
+        <a routerLink="books">Book list</a>
+      </li>
+      <li *ngIf="authService.user">
+        <a routerLink="addbook">Add book</a>
+      </li>
+      <li *ngIf="!authService.user">
+        <a routerLink="login">Log in/Register</a>
+      </li>
+      <li *ngIf="authService.user">
+        <a (click)="logOut()">Log out</a>
+      </li>
+    </ul>
+    </div>
+  </div>
+</header>

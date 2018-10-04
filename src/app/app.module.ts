@@ -2,13 +2,15 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {BooklistComponent} from './booklist/booklist.component';
-import {LoginComponent} from './login/login.component';
-import {AddBookComponent} from './add-book/add-book.component';
+import {BooklistComponent} from './containers/booklist/booklist.component';
+import {LoginComponent} from './containers/login/login.component';
+import {AddBookComponent} from './containers/add-book/add-book.component';
 import {AppRoutingModule} from './app.routing.module';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {FormsModule} from '@angular/forms';
+import {HeaderComponent} from './components/header/header.component';
+import {FooterComponent} from './components/footer/footer.component';
 
 const config = {
   apiKey: 'AIzaSyCxwmvvDy6NoUe5Xn3SGg383Zijls1y-RY',
@@ -24,7 +26,9 @@ const config = {
     AppComponent,
     BooklistComponent,
     LoginComponent,
-    AddBookComponent
+    AddBookComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

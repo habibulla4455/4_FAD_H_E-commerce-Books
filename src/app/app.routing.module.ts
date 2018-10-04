@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {BooklistComponent} from './booklist/booklist.component';
-import {AddBookComponent} from './add-book/add-book.component';
-import {LoginComponent} from './login/login.component';
+import {BooklistComponent} from './containers/booklist/booklist.component';
+import {AddBookComponent} from './containers/add-book/add-book.component';
+import {LoginComponent} from './containers/login/login.component';
 import {AuthGuardService} from './services/auth-guard.service';
 
 

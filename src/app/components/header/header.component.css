@@ -1,0 +1,41 @@
+header {
+  border-bottom: 3px solid black;
+}
+
+.headerContainer {
+  margin: 0 10px;
+  padding-top: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+ul {
+  list-style-type: none;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+}
+
+li {
+  margin: 0 10px;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 3px;
+}
+
+li:hover {
+  padding: 5px;
+  background-color: cornflowerblue;
+  color: white;
+}
+
+
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

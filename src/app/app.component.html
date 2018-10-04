@@ -1,18 +1,3 @@
-<h1>Book's page</h1>
-<ul>
-  <li>
-    <a routerLink="books">Book list</a>
-  </li>
-  <li *ngIf="authService.user">
-    <a routerLink="addbook">Add book</a>
-  </li>
-  <li *ngIf="!authService.user">
-    <a routerLink="login">Log in/Register</a>
-  </li>
-  <li *ngIf="authService.user">
-    <a (click)="logOut()">Log out</a>
-  </li>
-</ul>
-<p *ngIf="authService.user">Welcome {{authService.user.email}}</p>
-
+<app-header></app-header>
 <router-outlet></router-outlet>
+<app-footer></app-footer>

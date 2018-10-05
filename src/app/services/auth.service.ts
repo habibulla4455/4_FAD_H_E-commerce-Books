@@ -11,6 +11,7 @@ export class AuthService {
 
   user: User;
   loginFailed = new BehaviorSubject<boolean>(false);
+  registerFailed = new BehaviorSubject<boolean>(false);
 
   constructor(private angularFire: AngularFireAuth, private router: Router) {
     angularFire.authState.subscribe(user => {
@@ -34,7 +35,8 @@ export class AuthService {
         this.router.navigate(['/books']);
       })
       .catch(err => {
-        alert(err.message);
+        this.registerFailed.next(true);
+
       });
   }
 
@@ -49,8 +51,13 @@ export class AuthService {
     return this.loginFailed.asObservable();
   }
 
-  resetLoginStatus() {
+  getRegisterStatus(): Observable<boolean> {
+    return this.registerFailed.asObservable();
+  }
+
+  resetLoginRegisterStatus() {
     this.loginFailed.next(false);
+    this.registerFailed.next(false);
   }
 
 }

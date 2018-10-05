@@ -5,7 +5,8 @@
       <form (ngSubmit)="login(formData)" #formData="ngForm">
         <label>
           <span class="formPosition">E-mail</span>
-          <input [style.border-color]="getInputLoginColor(email)" ngModel #email="ngModel" type="email" name="email" email required>
+          <input [style.border-color]="getInputLoginColor(email)" ngModel #email="ngModel" type="email" name="email"
+                 email required>
         </label>
         <label>
           <span class="formPosition">Password</span>
@@ -22,17 +23,21 @@
         <form (ngSubmit)="signUp(formDataRegister)" #formDataRegister="ngForm" class="registerForm">
           <label>
             <span class="formPosition">E-mail</span>
-            <input ngModel type="email" name="email" required>
+            <input [style.border-color]="getInputLoginColor(emailRegister)" ngModel #emailRegister="ngModel"
+                   type="email" name="email" email required>
           </label>
           <label>
-            <span class="formPosition">Password</span>
-            <input ngModel type="password" name="password" required>
+            <span class="formPosition">Password <span class="inputInfo"> (min. 6 characters)</span></span>
+            <input [style.border-color]="getFirstPasswordRegisterColor(pas1)" ngModel #pas1="ngModel" type="password"
+                   name="password" minlength="6" required>
           </label>
           <label>
             <span class="formPosition">Repeat password</span>
-            <input ngModel type="password" name="passwordRepeat" required>
+            <input [style.border-color]="getPasswordRegisterColor(pas1, pas2)" ngModel #pas2="ngModel" type="password"
+                   name="passwordRepeat" minlength="6" required>
           </label>
-          <button type="submit" [disabled]="formDataRegister.invalid">Sign Up</button>
+          <button type="submit" [disabled]="formDataRegister.invalid || pas1.value!=pas2.value">Sign Up</button>
+          <p *ngIf="registerFailed" class="wrongLogin">wrong email address or already in use</p>
         </form>
       </div>
     </div>

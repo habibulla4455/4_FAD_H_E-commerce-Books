@@ -95,3 +95,8 @@ input:focus {
   color: crimson;
   font-size: 20px;
 }
+
+.inputInfo {
+  font-size: 13px;
+  font-style: italic;
+}

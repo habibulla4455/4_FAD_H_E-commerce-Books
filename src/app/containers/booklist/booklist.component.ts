@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DatabaseService} from '../../services/database.service';
 
 @Component({
   selector: 'app-booklist',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooklistComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dbService: DatabaseService) { }
 
   ngOnInit() {
+  }
+
+  getBooks() {
+    this.dbService.getBooks();
   }
 
 }

@@ -87,3 +87,11 @@ input:focus {
     margin: 20px auto;
   }
 }
+
+.wrongLogin {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: crimson;
+  font-size: 20px;
+}

@@ -5,13 +5,14 @@
       <form (ngSubmit)="login(formData)" #formData="ngForm">
         <label>
           <span class="formPosition">E-mail</span>
-          <input ngModel type="email" name="email" required>
+          <input [style.border-color]="getInputLoginColor(email)" ngModel #email="ngModel" type="email" name="email" email required>
         </label>
         <label>
           <span class="formPosition">Password</span>
           <input ngModel type="password" name="password" required>
         </label>
         <button type="submit" [disabled]="formData.invalid">Log in</button>
+        <p *ngIf="loginFailed" class="wrongLogin">Incorrect login/password combination</p>
       </form>
     </div>
     <div class="loginForm">

@@ -14,6 +14,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {BookCatContainerComponent} from './components/book-cat-container/book-cat-container.component';
+import {SingleBookComponent} from './containers/single-book/single-book.component';
 
 const config = {
   apiKey: 'AIzaSyCxwmvvDy6NoUe5Xn3SGg383Zijls1y-RY',
@@ -32,7 +33,8 @@ const config = {
     AddBookComponent,
     HeaderComponent,
     FooterComponent,
-    BookCatContainerComponent
+    BookCatContainerComponent,
+    SingleBookComponent
   ],
   imports: [
     BrowserModule,

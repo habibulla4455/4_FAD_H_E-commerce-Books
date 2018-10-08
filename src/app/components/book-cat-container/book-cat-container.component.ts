@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {Book} from '../../model/book';
 
 @Component({
@@ -13,12 +13,21 @@ export class BookCatContainerComponent implements OnInit, OnChanges {
 
   bookListWidth: string;
   bookListPos: string;
+  leftBttnVisible = 0;
+  rightBttonVisible = 0;
+
+  @ViewChild('listContainer') listContainer: ElementRef;
 
   constructor() {
   }
 
   ngOnInit() {
     this.bookListPos = 0 + 'px';
+    const pos = Number(this.bookListPos.substring(0, this.bookListPos.length - 2));
+    const width = Number(this.bookListWidth.substring(0, this.bookListWidth.length - 2));
+    if (pos + width > this.listContainer.nativeElement.clientWidth) {
+      this.rightBttonVisible = 1;
+    }
   }
 
   ngOnChanges(changes) {
@@ -29,14 +38,22 @@ export class BookCatContainerComponent implements OnInit, OnChanges {
     const pos = Number(this.bookListPos.substring(0, this.bookListPos.length - 2));
     if (pos < 0) {
       this.bookListPos = pos + 160 + 'px';
+      this.rightBttonVisible = 1;
+      if (this.bookListPos === '0px') {
+        this.leftBttnVisible = 0;
+      }
     }
   }
 
-  goLeft(listReference) {
+  goLeft() {
     const pos = Number(this.bookListPos.substring(0, this.bookListPos.length - 2));
     const width = Number(this.bookListWidth.substring(0, this.bookListWidth.length - 2));
-    if (pos + width > listReference.clientWidth) {
+    if (pos + width > this.listContainer.nativeElement.clientWidth) {
       this.bookListPos = pos - 160 + 'px';
+      this.leftBttnVisible = 1;
+      if (pos - 160 + width < this.listContainer.nativeElement.clientWidth) {
+        this.rightBttonVisible = 0;
+      }
     }
   }
 }

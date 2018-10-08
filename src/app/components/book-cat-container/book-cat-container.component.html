@@ -1,7 +1,7 @@
 <section class="categoryContainer">
   <h2>{{categoryName}}</h2>
   <div class="booksContainer">
-    <span class="changePicButton" (click)="goRight()"><</span>
+    <span class="changePicButton" (click)="goRight()" [style.opacity]="leftBttnVisible"><</span>
     <div class="listContainer" #listContainer>
       <ul class="booksList" [style.width]="bookListWidth" [style.left]="bookListPos">
         <li class="bookPosition" *ngFor="let book of books">
@@ -11,6 +11,6 @@
         </li>
       </ul>
     </div>
-    <span class="changePicButton" (click)="goLeft(listContainer)">></span>
+    <span class="changePicButton" (click)="goLeft()" [style.opacity]="rightBttonVisible">></span>
   </div>
 </section>

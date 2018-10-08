@@ -18,7 +18,7 @@ h2 {
   transition: 0.5s;
   background-color: rgb(241, 241, 241);
   border: 1px solid rgb(195, 195, 195);
-  padding: 5px 10px;
+  padding: 15px 10px;
   border-radius: 5px;
 }
 
@@ -30,6 +30,7 @@ h2 {
 .listContainer {
   flex-grow: 1;
   overflow: hidden;
+  margin: 0 3px;
 }
 
 .booksList {
@@ -48,6 +49,8 @@ h2 {
   cursor: pointer;
   transition: 0.5s;
   border-radius: 5px;
+  background-color:  rgb(241, 241, 241);
+  border: 1px solid rgb(226, 226, 226);
 }
 
 .bookPosition:hover {

@@ -4,7 +4,7 @@
     <span class="changePicButton" (click)="goRight()" [style.opacity]="leftBttnVisible"><</span>
     <div class="listContainer" #listContainer>
       <ul class="booksList" [style.width]="bookListWidth + 'px'" [style.left]="bookListPos + 'px'">
-        <li class="bookPosition" *ngFor="let book of books">
+        <li class="bookPosition" *ngFor="let book of books" routerLink="{{book.key}}">
           <img class="bookPosImage" src="{{book.imageUrl}}"/>
           <p class="bookPosTitle">{{book.name}}</p>
           <p class="bookPosAuthor">{{book.author}}</p>

@@ -45,7 +45,18 @@ h2 {
   height: 100%;
   padding: 5px 10px;
   width: 160px;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 5px;
 }
+
+.bookPosition:hover {
+  background-color: cornflowerblue;
+  border: 1px solid lightblue;
+  padding: 7px 12px;
+
+}
+
 
 .bookPosImage {
   width: 100%;

@@ -1,0 +1,16 @@
+<section class="categoryContainer">
+  <h2>{{categoryName}}</h2>
+  <div class="booksContainer">
+    <span class="changePicButton" (click)="goRight()"><</span>
+    <div class="listContainer" #listContainer>
+      <ul class="booksList" [style.width]="bookListWidth" [style.left]="bookListPos">
+        <li class="bookPosition" *ngFor="let book of books">
+          <img class="bookPosImage" src="{{book.imageUrl}}"/>
+          <p class="bookPosTitle">{{book.name}}</p>
+          <p class="bookPosAuthor">{{book.author}}</p>
+        </li>
+      </ul>
+    </div>
+    <span class="changePicButton" (click)="goLeft(listContainer)">></span>
+  </div>
+</section>

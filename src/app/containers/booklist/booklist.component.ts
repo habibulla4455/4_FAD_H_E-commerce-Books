@@ -25,7 +25,6 @@ export class BooklistComponent implements OnInit {
       this.booksList.biographies = books.filter(book => {
         return book.category === 'biographies';
       });
-      console.log(this.booksList);
     });
   }
 

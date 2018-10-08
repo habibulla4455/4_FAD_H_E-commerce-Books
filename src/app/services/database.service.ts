@@ -12,7 +12,7 @@ export class DatabaseService {
   bookList: Observable<any[]>;
 
   constructor(private http: HttpClient, private angularFireDB: AngularFireDatabase) {
-
+    this.getBooks();
   }
 
   getBooks() {

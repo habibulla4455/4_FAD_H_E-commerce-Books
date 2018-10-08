@@ -11,8 +11,8 @@ export class BookCatContainerComponent implements OnInit, OnChanges {
   @Input() books: Array<Book>;
   @Input() categoryName: string;
 
-  bookListWidth: string;
-  bookListPos: string;
+  bookListWidth = 0;
+  bookListPos = 0;
   leftBttnVisible = 0;
   rightBttonVisible = 0;
 
@@ -22,38 +22,42 @@ export class BookCatContainerComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.bookListPos = 0 + 'px';
-    const pos = Number(this.bookListPos.substring(0, this.bookListPos.length - 2));
-    const width = Number(this.bookListWidth.substring(0, this.bookListWidth.length - 2));
-    if (pos + width > this.listContainer.nativeElement.clientWidth) {
+    if (this.bookListPos + this.bookListWidth > this.listContainer.nativeElement.clientWidth) {
       this.rightBttonVisible = 1;
     }
   }
 
   ngOnChanges(changes) {
-    this.bookListWidth = changes.books.currentValue.length * 160 + 'px';
+    this.bookListWidth = changes.books.currentValue.length * 160;
   }
 
   goRight() {
-    const pos = Number(this.bookListPos.substring(0, this.bookListPos.length - 2));
-    if (pos < 0) {
-      this.bookListPos = pos + 160 + 'px';
-      this.rightBttonVisible = 1;
-      if (this.bookListPos === '0px') {
+    if (this.bookListPos < 0) {
+      this.bookListPos += 160;
+      if (this.bookListPos + this.bookListWidth > this.listContainer.nativeElement.clientWidth) {
+        this.rightBttonVisible = 1;
+      }
+      if (this.bookListPos === 0) {
         this.leftBttnVisible = 0;
       }
     }
   }
 
   goLeft() {
-    const pos = Number(this.bookListPos.substring(0, this.bookListPos.length - 2));
-    const width = Number(this.bookListWidth.substring(0, this.bookListWidth.length - 2));
-    if (pos + width > this.listContainer.nativeElement.clientWidth) {
-      this.bookListPos = pos - 160 + 'px';
+    if (this.bookListPos + this.bookListWidth > this.listContainer.nativeElement.clientWidth) {
+      this.bookListPos -= 160;
       this.leftBttnVisible = 1;
-      if (pos - 160 + width < this.listContainer.nativeElement.clientWidth) {
+      if (this.bookListPos - 160 + this.bookListWidth < this.listContainer.nativeElement.clientWidth) {
         this.rightBttonVisible = 0;
       }
+    }
+  }
+
+  onResize() {
+    if (this.bookListPos + this.bookListWidth > this.listContainer.nativeElement.clientWidth) {
+      this.rightBttonVisible = 1;
+    } else {
+      this.rightBttonVisible = 0;
     }
   }
 }

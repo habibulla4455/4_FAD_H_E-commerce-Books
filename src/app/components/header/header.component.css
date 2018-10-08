@@ -3,7 +3,6 @@ header {
 }
 
 .headerContainer {
-  margin: 0 10px;
   padding-top: 35px;
   display: flex;
   justify-content: space-between;

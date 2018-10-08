@@ -3,7 +3,6 @@ footer {
 }
 
 .footerContainer {
-  margin: 0 10px;
   padding-top: 15px;
   display: flex;
   justify-content: space-between;

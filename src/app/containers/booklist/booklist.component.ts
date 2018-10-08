@@ -9,16 +9,33 @@ import {Book} from '../../model/book';
 })
 export class BooklistComponent implements OnInit {
 
-  booksList: Array<Book>;
+  booksList = new BooksWithCategories();
 
   constructor(private dbService: DatabaseService) {
   }
 
   ngOnInit() {
     this.dbService.bookList.subscribe(books => {
-      this.booksList = books;
+      this.booksList.fantasySciFi = books.filter(book => {
+        return book.category === 'fantasySciFi';
+      });
+      this.booksList.horror = books.filter(book => {
+        return book.category === 'horror';
+      });
+      this.booksList.biographies = books.filter(book => {
+        return book.category === 'biographies';
+      });
       console.log(this.booksList);
     });
   }
 
+}
+
+class BooksWithCategories {
+  constructor(
+    public fantasySciFi?: Array<Book>,
+    public horror?: Array<Book>,
+    public biographies?: Array<Book>
+  ) {
+  }
 }

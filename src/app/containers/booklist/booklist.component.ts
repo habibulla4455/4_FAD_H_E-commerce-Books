@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DatabaseService} from '../../services/database.service';
+import {Book} from '../../model/book';
 
 @Component({
   selector: 'app-booklist',
@@ -8,13 +9,17 @@ import {DatabaseService} from '../../services/database.service';
 })
 export class BooklistComponent implements OnInit {
 
-  constructor(private dbService: DatabaseService) { }
+  booksList: Array<Book>;
 
-  ngOnInit() {
+  constructor(private dbService: DatabaseService) {
   }
 
-  getBooks() {
+  ngOnInit() {
     this.dbService.getBooks();
+    this.dbService.bookList.subscribe(books => {
+      this.booksList = books;
+      console.log(this.booksList);
+    });
   }
 
 }

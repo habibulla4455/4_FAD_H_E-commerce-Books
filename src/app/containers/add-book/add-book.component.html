@@ -31,7 +31,7 @@
       </label>
       <input type="text" class="wideInput" id="imageUrl"  formControlName="imageUrl"/>
       <p class="inputTitle">Image preview</p>
-      <img class="bookImage" src=""/>
+      <img class="bookImage" src="{{this.addBookForm.value.imageUrl}}" alt="Invalid URL" />
     </div>
     <div class="formDescription">
       <label for="bookDescriptionMain" class="inputTitle topMargin">Main Description</label>
@@ -44,6 +44,6 @@
       <textarea id="bookDescriptionDetail" class="bookDescInput" rows="4" cols="50" formControlName="bookDescriptionDetail"></textarea>
       <button type="button" class="newParagraph">Add new paragraph</button>
     </div>
-    <button type="submit">Add new Book</button>
+    <button type="submit" [disabled]="addBookForm.invalid">Add new Book</button>
   </form>
 </div>

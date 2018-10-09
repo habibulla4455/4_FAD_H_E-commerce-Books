@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
+import {DatabaseService} from '../../services/database.service';
 
 @Component({
   selector: 'app-add-book',
@@ -10,27 +11,26 @@ import {AuthService} from '../../services/auth.service';
 export class AddBookComponent implements OnInit {
 
   addBookForm: FormGroup;
-  categoryList = ['horror', 'fantasySciFi'];
+  categoryList = ['horror', 'fantasySciFi', 'other'];
   book = new ReactiveBook();
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private dbService: DatabaseService) {
   }
 
   ngOnInit() {
     this.addBookForm = new FormGroup({
-      bookName: new FormControl(null),
-      bookAuthor: new FormControl(null),
-      bookPublisher: new FormControl(null),
-      bookReleased: new FormControl(null),
-      bookCategory: new FormControl(this.categoryList[1]),
-      imageUrl: new FormControl(null),
-      bookDescriptionMain: new FormControl(null),
-      bookDescriptionDetail: new FormControl(null)
+      bookName: new FormControl(null, Validators.required),
+      bookAuthor: new FormControl(null, Validators.required),
+      bookPublisher: new FormControl(null, Validators.required),
+      bookReleased: new FormControl(null, Validators.required),
+      bookCategory: new FormControl(this.categoryList[2]),
+      imageUrl: new FormControl(null, Validators.required),
+      bookDescriptionMain: new FormControl(null, Validators.required),
+      bookDescriptionDetail: new FormControl(null, Validators.required)
     });
   }
 
   onSubmit() {
-    console.log(this.addBookForm);
     this.book.author = this.addBookForm.value.bookAuthor;
     this.book.category = this.addBookForm.value.bookCategory;
     this.book.created = new Date().toLocaleDateString();
@@ -42,6 +42,7 @@ export class AddBookComponent implements OnInit {
     this.book.released = this.addBookForm.value.bookReleased;
     this.book.userId = this.authService.user.uid;
     console.log(this.book);
+    this.dbService.createNewBook(this.book);
   }
 }
 

@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {Book} from '../model/book';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class DatabaseService {
   bookList: Observable<any[]>;
   book: Observable<any[]>;
 
-  constructor(private http: HttpClient, private angularFireDB: AngularFireDatabase) {
+  constructor(private http: HttpClient, private angularFireDB: AngularFireDatabase, private route: Router) {
     this.getBooks();
   }
 
@@ -44,5 +46,11 @@ export class DatabaseService {
           }
         )
       );
+  }
+
+  createNewBook(book) {
+    this.angularFireDB.list('books').push(book).then(succes => {
+      this.route.navigate(['books/' + succes.path.pieces_[1]]);
+    });
   }
 }

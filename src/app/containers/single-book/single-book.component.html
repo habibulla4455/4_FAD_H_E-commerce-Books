@@ -16,7 +16,9 @@
       <p class="bookCategory"><span class="columnTitlePos">Category</span>: {{book.category}}</p>
       <p class="bookDescHeader">Description</p>
       <p class="bookDescMain">{{book.descriptionMain}}</p>
-      <p class="bookDescDetail" *ngFor="let bookdescription of book.descriptionDetail">{{bookdescription}}</p>
+      <p class="bookDescDetail" *ngFor="let bookdescription of book.descriptionDetail">
+        {{bookdescription}}
+      </p>
     </div>
-</div>
+  </div>
 </div>

@@ -8,7 +8,7 @@ import {AddBookComponent} from './containers/add-book/add-book.component';
 import {AppRoutingModule} from './app.routing.module';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -39,6 +39,7 @@ const config = {
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(config),

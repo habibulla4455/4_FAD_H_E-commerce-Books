@@ -1,3 +1,49 @@
-<p>
-  add-book works!
-</p>
+<div class="container">
+  <h2>Add new book to the database</h2>
+  <p class="addBookDesc">
+    Check out if the book you want to add is not already in the system. If not, remember to fill all fileds in
+    the form below. Choose the picture carefully, see the preview for the final result.
+  </p>
+  <form class="addBookContainer">
+    <div class="formColMain">
+      <label for="bookName" class="inputTitle">Title</label>
+      <input type="text" class="wideInput" id="bookName"/>
+      <label for="bookAuthor" class="inputTitle">Author</label>
+      <input type="text" class="wideInput" id="bookAuthor"/>
+      <label for="bookPublisher" class="inputTitle">Publisher</label>
+      <input type="text" class="wideInput" id="bookPublisher"/>
+      <div class="inputFlexContainer">
+        <label for="bookReleased" class="inputTitle">Release date</label>
+        <input type="date" class="flexInput" id="bookReleased"/>
+      </div>
+      <div class="inputFlexContainer">
+        <label for="bookCategory" class="inputTitle">Category</label>
+        <select class="flexInput" id="bookCategory">
+          <option *ngFor="let category of categoryList" value="{{category}}">{{category}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="formColPicture">
+      <label for="imageUrl" class="inputTitle">Image URL
+        <span class="additionalInfo">
+          (paste image addres from internet)
+        </span>
+      </label>
+      <input type="text" class="wideInput" id="imageUrl"/>
+      <p class="inputTitle">Image preview</p>
+      <img class="bookImage" src=""/>
+    </div>
+    <div class="formDescription">
+      <label for="bookDescriptionMain" class="inputTitle topMargin">Main Description</label>
+      <textarea id="bookDescriptionMain" class="bookDescInput" rows="4" cols="50"></textarea>
+      <label for="bookDescriptionDetail" class="inputTitle topMargin">Detailed description
+        <span class="additionalInfo">
+          (one paragraph)
+        </span>
+      </label>
+      <textarea id="bookDescriptionDetail" class="bookDescInput" rows="4" cols="50"></textarea>
+      <button type="button" class="newParagraph">Add new paragraph</button>
+    </div>
+    <button type="submit">Add new Book</button>
+  </form>
+</div>

@@ -1,0 +1,147 @@
+h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.addBookDesc {
+  width: 700px;
+  margin-bottom: 30px;
+}
+
+.addBookContainer {
+  margin-bottom: 30px;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.formColMain, .formColPicture{
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.formColPicture:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.formDescription {
+  width: 100%;
+  padding: 10px;
+}
+
+.inputTitle {
+  font-size: 25px;
+  width: 170px;
+}
+
+.wideInput {
+  width: 100%;
+  display: block;
+  height: 30px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.inputFlexContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.flexInput {
+  flex-grow: 1;
+  height: 30px;
+  padding: 5px;
+}
+
+.additionalInfo{
+  font-style: italic;
+  font-size: 17px;
+}
+
+.bookImage {
+  display: block;
+  width: 280px;
+  height: 420px;
+  margin: 0 auto;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border: 1px solid grey;
+}
+
+.bookDescInput {
+  width: 100%;
+  resize: none;
+  padding: 10px;
+}
+
+.topMargin {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.newParagraph {
+  display: block;
+  margin: 15px 0;
+  width: 280px;
+  padding: 10px;
+  background-color: cornflowerblue;
+  color: white;
+  border: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.newParagraph:hover {
+  background-color: blue;
+  font-size: 20px;
+}
+
+button[type="submit"] {
+  height: 35px;
+  margin: 0 auto;
+  padding: 10px;
+  width: 300px;
+  background-color: rgb(51, 204, 51);
+  color: white;
+  border: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+button[type="submit"]:hover {
+  background-color: blue;
+  font-size: 20px;
+  height: 42px;
+}
+
+button[type="submit"]:disabled {
+  background-color: lightgray;
+  cursor: default;
+  height: 35px;
+  font-size: 18px;
+}
+
+@media (max-width: 830px) {
+  .formColMain, .formColPicture {
+    width: 100%;
+  }
+
+  .addBookDesc {
+    width: 100%;
+  }
+
+  button[type="submit"]{
+    width: 100%;
+  }
+}

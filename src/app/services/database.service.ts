@@ -10,6 +10,7 @@ import {map} from 'rxjs/operators';
 export class DatabaseService {
 
   bookList: Observable<any[]>;
+  book: Observable<any[]>;
 
   constructor(private http: HttpClient, private angularFireDB: AngularFireDatabase) {
     this.getBooks();
@@ -24,4 +25,24 @@ export class DatabaseService {
       );
   }
 
+  getBookById(id: string) {
+    this.book = this.angularFireDB.list('books/' + id).snapshotChanges()
+      .pipe(
+        map(actions => {
+            const table = actions.map(a => {
+              return ({
+                [a.key]: a.payload.val()
+              });
+            });
+            const object = {};
+            for (const element of table) {
+              for (let key in element) {
+                object[key] = element[key];
+              }
+            }
+            return [object];
+          }
+        )
+      );
+  }
 }

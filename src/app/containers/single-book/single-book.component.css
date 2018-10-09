@@ -1,0 +1,62 @@
+.singleBookContainer{
+  display:flex;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.photoColumn {
+  width: 300px;
+  padding: 10px;
+}
+
+.descriptionColumn {
+  padding: 10px;
+  flex-grow: 1;
+}
+
+@media( max-width: 830px ) {
+  .singleBookContainer {
+    flex-direction: column;
+  }
+
+  .photoColumn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.bookImage {
+  display: block;
+  width: 280px;
+  height: 420px;
+  margin: 0 auto;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.addToRead {
+  display: block;
+  margin: 15px auto 20px auto;
+  width: 280px;
+  padding: 10px;
+  background-color: cornflowerblue;
+  color: white;
+  border: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.addToRead:hover {
+  background-color: blue;
+  font-size: 20px;
+}
+
+.columnTitlePos {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}

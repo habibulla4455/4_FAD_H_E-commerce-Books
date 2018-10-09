@@ -1,3 +1,17 @@
-<p>
-  single-book works!, And id: {{id}}
-</p>
+<div class="container">
+  <div *ngIf="book" class="singleBookContainer">
+    <div class="photoColumn">
+      <img class="bookImage" src="{{book.imageUrl}}"/>
+      <button type="button" class="addToRead" (click)="addToRead()">Add to read list</button>
+      <p class="columnTitlePos">Publisher</p>
+      <p>{{book.publisher}}</p>
+      <p class="columnTitlePos">Released</p>
+      <p>{{book.released}}</p>
+      <p class="columnTitlePos">Added to the database</p>
+      <p>{{book.created}}</p>
+    </div>
+    <div class="descriptionColumn">
+      <p>Description column</p>
+    </div>
+  </div>
+</div>

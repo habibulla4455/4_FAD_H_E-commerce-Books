@@ -24,8 +24,10 @@ export class SingleBookComponent implements OnInit {
     });
     this.dbService.book.subscribe( book => {
       this.book = book[0];
-      console.log(book[0]);
     });
   }
 
+  addToRead(){
+    alert('This Functionality not yet implemented in application');
+  }
 }

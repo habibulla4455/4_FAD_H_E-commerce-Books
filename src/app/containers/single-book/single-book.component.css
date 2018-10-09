@@ -4,6 +4,10 @@
   margin-bottom: 40px;
 }
 
+p {
+  font-size: 20px;
+}
+
 .photoColumn {
   width: 300px;
   padding: 10px;
@@ -21,6 +25,18 @@
 
   .photoColumn {
     width: 100%;
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .bookAuthor {
+    text-align: center;
+  }
+
+  .bookCategory {
     text-align: center;
   }
 }
@@ -57,6 +73,33 @@
 
 .columnTitlePos {
   font-weight: bold;
+  font-size: 20px;
   margin-top: 10px;
   margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.bookAuthor {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.bookDescHeader {
+  margin: 10px 0;
+  font-weight: bold;
+  border-top: 1px solid lightgray;
+  padding: 5px 0;
+  font-size: 25px;
+}
+
+.bookDescMain {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.bookDescDetail {
+  margin-bottom: 10px;
 }

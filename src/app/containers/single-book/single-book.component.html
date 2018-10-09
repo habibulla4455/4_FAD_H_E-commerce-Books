@@ -11,7 +11,12 @@
       <p>{{book.created}}</p>
     </div>
     <div class="descriptionColumn">
-      <p>Description column</p>
+      <h2>{{book.name}}</h2>
+      <p class="bookAuthor">By {{book.author}}</p>
+      <p class="bookCategory"><span class="columnTitlePos">Category</span>: {{book.category}}</p>
+      <p class="bookDescHeader">Description</p>
+      <p class="bookDescMain">{{book.descriptionMain}}</p>
+      <p class="bookDescDetail" *ngFor="let bookdescription of book.descriptionDetail">{{bookdescription}}</p>
     </div>
-  </div>
+</div>
 </div>

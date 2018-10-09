@@ -2,7 +2,8 @@ export interface Book {
   author: string;
   category: string;
   created: string;
-  description: string;
+  descriptionMain: string;
+  descriptionDetail: string;
   imageUrl: string;
   key: string;
   name: string;

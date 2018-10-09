@@ -4,21 +4,21 @@
     Check out if the book you want to add is not already in the system. If not, remember to fill all fileds in
     the form below. Choose the picture carefully, see the preview for the final result.
   </p>
-  <form class="addBookContainer">
+  <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()" class="addBookContainer">
     <div class="formColMain">
       <label for="bookName" class="inputTitle">Title</label>
-      <input type="text" class="wideInput" id="bookName"/>
+      <input type="text" class="wideInput" id="bookName" formControlName="bookName"/>
       <label for="bookAuthor" class="inputTitle">Author</label>
-      <input type="text" class="wideInput" id="bookAuthor"/>
+      <input type="text" class="wideInput" id="bookAuthor" formControlName="bookAuthor"/>
       <label for="bookPublisher" class="inputTitle">Publisher</label>
-      <input type="text" class="wideInput" id="bookPublisher"/>
+      <input type="text" class="wideInput" id="bookPublisher" formControlName="bookPublisher"/>
       <div class="inputFlexContainer">
         <label for="bookReleased" class="inputTitle">Release date</label>
-        <input type="date" class="flexInput" id="bookReleased"/>
+        <input type="date" class="flexInput" id="bookReleased" formControlName="bookReleased"/>
       </div>
       <div class="inputFlexContainer">
         <label for="bookCategory" class="inputTitle">Category</label>
-        <select class="flexInput" id="bookCategory">
+        <select class="flexInput" id="bookCategory" formControlName="bookCategory" >
           <option *ngFor="let category of categoryList" value="{{category}}">{{category}}</option>
         </select>
       </div>
@@ -29,19 +29,19 @@
           (paste image addres from internet)
         </span>
       </label>
-      <input type="text" class="wideInput" id="imageUrl"/>
+      <input type="text" class="wideInput" id="imageUrl"  formControlName="imageUrl"/>
       <p class="inputTitle">Image preview</p>
       <img class="bookImage" src=""/>
     </div>
     <div class="formDescription">
       <label for="bookDescriptionMain" class="inputTitle topMargin">Main Description</label>
-      <textarea id="bookDescriptionMain" class="bookDescInput" rows="4" cols="50"></textarea>
+      <textarea id="bookDescriptionMain" class="bookDescInput" rows="4" cols="50" formControlName="bookDescriptionMain"></textarea>
       <label for="bookDescriptionDetail" class="inputTitle topMargin">Detailed description
         <span class="additionalInfo">
           (one paragraph)
         </span>
       </label>
-      <textarea id="bookDescriptionDetail" class="bookDescInput" rows="4" cols="50"></textarea>
+      <textarea id="bookDescriptionDetail" class="bookDescInput" rows="4" cols="50" formControlName="bookDescriptionDetail"></textarea>
       <button type="button" class="newParagraph">Add new paragraph</button>
     </div>
     <button type="submit">Add new Book</button>

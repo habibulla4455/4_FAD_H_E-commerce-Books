@@ -3,6 +3,11 @@
     <div class="photoColumn">
       <img class="bookImage" src="{{book.imageUrl}}"/>
       <button type="button" class="addToRead" (click)="addToRead()">Add to read list</button>
+      <div *ngIf="authservice.user.uid === book.userId" class="manageBook">
+        <p class="columnTitlePos">Manage your book</p>
+        <button type="button" class="addToRead manageBttn" (click)="editbook()">Edit book data</button>
+        <button type="button" class="addToRead manageBttn" (click)="deleteBookPopup = true">Delete book</button>
+      </div>
       <p class="columnTitlePos">Publisher</p>
       <p>{{book.publisher}}</p>
       <p class="columnTitlePos">Released</p>
@@ -20,5 +25,12 @@
         {{bookdescription}}
       </p>
     </div>
+  </div>
+</div>
+<div *ngIf="deleteBookPopup" class="deletePopup">
+  <div class="deleteWindow">
+    <p>Do you really want to delete this book?</p>
+    <button type="button" class="addToRead manageBttn" (click)="deleteBook()">Yes</button>
+    <button type="button" class="addToRead manageBttn" (click)="deleteBookPopup = false">No</button>
   </div>
 </div>

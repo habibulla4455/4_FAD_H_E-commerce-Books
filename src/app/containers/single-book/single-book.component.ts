@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {DatabaseService} from '../../services/database.service';
 import {Book} from '../../model/book';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-single-book',
@@ -13,8 +14,9 @@ export class SingleBookComponent implements OnInit {
   id: string;
   private sub: any;
   book: Book;
+  deleteBookPopup = false;
 
-  constructor(private route: ActivatedRoute, private dbService: DatabaseService) {
+  constructor(private route: ActivatedRoute, private dbService: DatabaseService, public authservice: AuthService) {
   }
 
   ngOnInit() {
@@ -22,12 +24,16 @@ export class SingleBookComponent implements OnInit {
       this.id = params['id'];
       this.dbService.getBookById(this.id);
     });
-    this.dbService.book.subscribe( book => {
+    this.dbService.book.subscribe(book => {
       this.book = book[0];
     });
   }
 
-  addToRead(){
+  addToRead() {
     alert('This Functionality not yet implemented in application');
+  }
+
+  deleteBook() {
+    this.dbService.deleteBook(this.id);
   }
 }

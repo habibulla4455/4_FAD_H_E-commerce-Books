@@ -53,4 +53,14 @@ export class DatabaseService {
       this.route.navigate(['books/' + succes.path.pieces_[1]]);
     });
   }
+
+  deleteBook(bookId) {
+    this.angularFireDB.list('books').remove(bookId)
+      .then(() => {
+          this.route.navigate(['books']);
+        }
+      ).catch(err => {
+      alert(err);
+    });
+  }
 }

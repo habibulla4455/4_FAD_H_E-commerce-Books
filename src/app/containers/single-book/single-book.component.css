@@ -103,3 +103,33 @@ h2 {
 .bookDescDetail {
   margin-bottom: 10px;
 }
+
+.manageBook {
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(241, 241, 241);
+  text-align: center;
+}
+
+.manageBttn {
+  width: 100%;
+}
+
+.deletePopup{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.deleteWindow {
+  border: 1px solid black;
+  padding: 20px;
+  background: lightgray;
+}

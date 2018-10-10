@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {DatabaseService} from '../../services/database.service';
 
@@ -26,22 +26,26 @@ export class AddBookComponent implements OnInit {
       bookCategory: new FormControl(this.categoryList[2]),
       imageUrl: new FormControl(null, Validators.required),
       bookDescriptionMain: new FormControl(null, Validators.required),
-      bookDescriptionDetail: new FormControl(null, Validators.required)
+      bookDescriptionDetail: new FormArray([new FormControl(null, Validators.required)])
     });
+  }
+
+  newParagraph() {
+    const arr = <FormArray>this.addBookForm.get('bookDescriptionDetail');
+    arr.push(new FormControl(null, Validators.required));
   }
 
   onSubmit() {
     this.book.author = this.addBookForm.value.bookAuthor;
     this.book.category = this.addBookForm.value.bookCategory;
     this.book.created = new Date().toLocaleDateString();
-    this.book.descriptionDetail = [this.addBookForm.value.bookDescriptionDetail];
+    this.book.descriptionDetail = this.addBookForm.value.bookDescriptionDetail;
     this.book.descriptionMain = this.addBookForm.value.bookDescriptionMain;
     this.book.imageUrl = this.addBookForm.value.imageUrl;
     this.book.name = this.addBookForm.value.bookName;
     this.book.publisher = this.addBookForm.value.bookPublisher;
     this.book.released = this.addBookForm.value.bookReleased;
     this.book.userId = this.authService.user.uid;
-    console.log(this.book);
     this.dbService.createNewBook(this.book);
   }
 }

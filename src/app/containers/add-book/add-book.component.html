@@ -18,7 +18,7 @@
       </div>
       <div class="inputFlexContainer">
         <label for="bookCategory" class="inputTitle">Category</label>
-        <select class="flexInput" id="bookCategory" formControlName="bookCategory" >
+        <select class="flexInput" id="bookCategory" formControlName="bookCategory">
           <option *ngFor="let category of categoryList" value="{{category}}">{{category}}</option>
         </select>
       </div>
@@ -29,20 +29,25 @@
           (paste image addres from internet)
         </span>
       </label>
-      <input type="text" class="wideInput" id="imageUrl"  formControlName="imageUrl"/>
+      <input type="text" class="wideInput" id="imageUrl" formControlName="imageUrl"/>
       <p class="inputTitle">Image preview</p>
-      <img class="bookImage" src="{{this.addBookForm.value.imageUrl}}" alt="Invalid URL" />
+      <img class="bookImage" src="{{this.addBookForm.value.imageUrl}}" alt="Invalid URL"/>
     </div>
     <div class="formDescription">
       <label for="bookDescriptionMain" class="inputTitle topMargin">Main Description</label>
-      <textarea id="bookDescriptionMain" class="bookDescInput" rows="4" cols="50" formControlName="bookDescriptionMain"></textarea>
-      <label for="bookDescriptionDetail" class="inputTitle topMargin">Detailed description
+      <textarea id="bookDescriptionMain" class="bookDescInput" rows="4" cols="50"
+                formControlName="bookDescriptionMain"></textarea>
+      <label class="inputTitle topMargin">Detailed description
         <span class="additionalInfo">
           (one paragraph)
         </span>
       </label>
-      <textarea id="bookDescriptionDetail" class="bookDescInput" rows="4" cols="50" formControlName="bookDescriptionDetail"></textarea>
-      <button type="button" class="newParagraph">Add new paragraph</button>
+      <div formArrayName="bookDescriptionDetail">
+        <div *ngFor="let paragraph of addBookForm.get('bookDescriptionDetail')['controls']; let i = index">
+          <textarea class="bookDescInput" rows="4" cols="50" [formControlName]="i"></textarea>
+        </div>
+      </div>
+      <button type="button" class="newParagraph" (click)="newParagraph()">Add new paragraph</button>
     </div>
     <button type="submit" [disabled]="addBookForm.invalid">Add new Book</button>
   </form>

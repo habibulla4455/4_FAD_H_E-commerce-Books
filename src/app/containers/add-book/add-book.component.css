@@ -41,6 +41,12 @@ h2 {
   height: 30px;
   padding: 5px;
   margin-bottom: 20px;
+  transition: 0.5s;
+}
+
+.wideInput:focus {
+  height: 35px;
+  background: rgb(232, 252, 255);
 }
 
 .inputFlexContainer {

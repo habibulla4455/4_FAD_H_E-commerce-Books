@@ -3,6 +3,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {User} from 'firebase';
 import {Router} from '@angular/router';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {EditBookService} from './edit-book.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,11 @@ export class AuthService {
   loginFailed = new BehaviorSubject<boolean>(false);
   registerFailed = new BehaviorSubject<boolean>(false);
 
-  constructor(private angularFire: AngularFireAuth, private router: Router) {
+  constructor(
+    private angularFire: AngularFireAuth,
+    private router: Router,
+    private editBookService: EditBookService
+  ) {
     angularFire.authState.subscribe(user => {
       this.user = user;
     });
@@ -43,6 +48,7 @@ export class AuthService {
   logOut() {
     this.angularFire.auth.signOut()
       .then(() => {
+        this.editBookService.bookEditedReset();
         this.router.navigate(['/books']);
       });
   }

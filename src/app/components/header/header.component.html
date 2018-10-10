@@ -8,7 +8,7 @@
         <a routerLink="books">Explore</a>
       </li>
       <li *ngIf="authService.user">
-        <a routerLink="addbook">Add book</a>
+        <a routerLink="addbook" (click)="addBookPage()">Add book</a>
       </li>
       <li *ngIf="!authService.user">
         <a routerLink="login">Log in/Register</a>

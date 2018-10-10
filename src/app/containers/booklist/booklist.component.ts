@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DatabaseService} from '../../services/database.service';
 import {Book} from '../../model/book';
+import {EditBookService} from '../../services/edit-book.service';
 
 @Component({
   selector: 'app-booklist',
@@ -11,10 +12,11 @@ export class BooklistComponent implements OnInit {
 
   booksList = new BooksWithCategories();
 
-  constructor(private dbService: DatabaseService) {
+  constructor(private dbService: DatabaseService, private editBookService: EditBookService) {
   }
 
   ngOnInit() {
+    this.editBookService.bookEditedReset();
     this.dbService.bookList.subscribe(books => {
       this.booksList.fantasySciFi = books.filter(book => {
         return book.category === 'fantasySciFi';

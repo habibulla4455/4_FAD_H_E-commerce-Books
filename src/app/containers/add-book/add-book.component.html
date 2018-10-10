@@ -49,6 +49,7 @@
       </div>
       <button type="button" class="newParagraph" (click)="newParagraph()">Add new paragraph</button>
     </div>
-    <button type="submit" [disabled]="addBookForm.invalid">Add new Book</button>
+    <button *ngIf="!editingMode" type="submit" [disabled]="addBookForm.invalid">Add new Book</button>
+    <button *ngIf="editingMode" type="submit" [disabled]="addBookForm.invalid">Finish editing</button>
   </form>
 </div>

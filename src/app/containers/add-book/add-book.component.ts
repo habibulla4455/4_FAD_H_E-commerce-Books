@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {DatabaseService} from '../../services/database.service';
+import {EditBookService} from '../../services/edit-book.service';
 
 @Component({
   selector: 'app-add-book',
@@ -13,8 +14,14 @@ export class AddBookComponent implements OnInit {
   addBookForm: FormGroup;
   categoryList = ['horror', 'fantasySciFi', 'other'];
   book = new ReactiveBook();
+  editingMode = false;
+  editedBookId: string;
 
-  constructor(private authService: AuthService, private dbService: DatabaseService) {
+  constructor(
+    private authService: AuthService,
+    private dbService: DatabaseService,
+    private editBookService: EditBookService
+  ) {
   }
 
   ngOnInit() {
@@ -27,6 +34,26 @@ export class AddBookComponent implements OnInit {
       imageUrl: new FormControl(null, Validators.required),
       bookDescriptionMain: new FormControl(null, Validators.required),
       bookDescriptionDetail: new FormArray([new FormControl(null, Validators.required)])
+    });
+    this.editBookService.bookIsEdited.subscribe(bookIsEdited => {
+      this.editingMode = bookIsEdited;
+    });
+    this.editBookService.bookEdited.subscribe(editedBook => {
+      this.editedBookId = editedBook.key;
+      this.addBookForm.controls.bookName.setValue(editedBook.name);
+      this.addBookForm.controls.bookAuthor.setValue(editedBook.author);
+      this.addBookForm.controls.bookPublisher.setValue(editedBook.publisher);
+      this.addBookForm.controls.bookReleased.setValue(editedBook.released);
+      this.addBookForm.controls.bookCategory.setValue(editedBook.category);
+      this.addBookForm.controls.imageUrl.setValue(editedBook.imageUrl);
+      this.addBookForm.controls.bookDescriptionMain.setValue(editedBook.descriptionMain);
+      if (editedBook.descriptionDetail) {
+        const arr = <FormArray>this.addBookForm.get('bookDescriptionDetail');
+        arr.removeAt(0);
+        for (let i = 0; i < editedBook.descriptionDetail.length; i++) {
+          arr.push(new FormControl(editedBook.descriptionDetail[i], Validators.required));
+        }
+      }
     });
   }
 
@@ -46,7 +73,11 @@ export class AddBookComponent implements OnInit {
     this.book.publisher = this.addBookForm.value.bookPublisher;
     this.book.released = this.addBookForm.value.bookReleased;
     this.book.userId = this.authService.user.uid;
-    this.dbService.createNewBook(this.book);
+    if (this.editingMode) {
+      this.dbService.editBook(this.editedBookId, this.book);
+    } else {
+      this.dbService.createNewBook(this.book);
+    }
   }
 }
 

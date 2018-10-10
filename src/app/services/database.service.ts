@@ -63,4 +63,14 @@ export class DatabaseService {
       alert(err);
     });
   }
+
+  editBook(id, book) {
+    this.angularFireDB.list('books').set(id, book)
+      .then(() => {
+          this.route.navigate(['books/' + id]);
+        }
+      ).catch(err => {
+      alert(err);
+    });
+  }
 }

@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DatabaseService} from '../../services/database.service';
 import {Book} from '../../model/book';
 import {AuthService} from '../../services/auth.service';
+import {EditBookService} from '../../services/edit-book.service';
 
 @Component({
   selector: 'app-single-book',
@@ -16,7 +17,13 @@ export class SingleBookComponent implements OnInit {
   book: Book;
   deleteBookPopup = false;
 
-  constructor(private route: ActivatedRoute, private dbService: DatabaseService, public authservice: AuthService) {
+  constructor(
+    private route: ActivatedRoute,
+    private dbService: DatabaseService,
+    public authservice: AuthService,
+    private editBookService: EditBookService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
@@ -35,5 +42,10 @@ export class SingleBookComponent implements OnInit {
 
   deleteBook() {
     this.dbService.deleteBook(this.id);
+  }
+
+  editbook() {
+    this.editBookService.bookEditedSet({key: this.id, ...this.book});
+    this.router.navigate(['addbook']);
   }
 }

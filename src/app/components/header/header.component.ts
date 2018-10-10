@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
+import {EditBookService} from '../../services/edit-book.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,15 @@ import {AuthService} from '../../services/auth.service';
 })
 export class HeaderComponent {
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, private editBookService: EditBookService) {
 
   }
 
   logOut() {
     this.authService.logOut();
+  }
+
+  addBookPage() {
+    this.editBookService.bookEditedReset();
   }
 }

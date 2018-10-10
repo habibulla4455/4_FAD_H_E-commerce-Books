@@ -14,10 +14,11 @@ export class HeaderComponent {
   }
 
   logOut() {
+    this.editBookService.bookEditedReset();
     this.authService.logOut();
   }
 
-  addBookPage() {
+  resetBookEdit() {
     this.editBookService.bookEditedReset();
   }
 }

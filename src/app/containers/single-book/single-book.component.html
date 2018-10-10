@@ -3,7 +3,7 @@
     <div class="photoColumn">
       <img class="bookImage" src="{{book.imageUrl}}"/>
       <button type="button" class="addToRead" (click)="addToRead()">Add to read list</button>
-      <div *ngIf="authservice.user.uid === book.userId" class="manageBook">
+      <div *ngIf="authservice.user && authservice.user.uid === book.userId" class="manageBook">
         <p class="columnTitlePos">Manage your book</p>
         <button type="button" class="addToRead manageBttn" (click)="editbook()">Edit book data</button>
         <button type="button" class="addToRead manageBttn" (click)="deleteBookPopup = true">Delete book</button>

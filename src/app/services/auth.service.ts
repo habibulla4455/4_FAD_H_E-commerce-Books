@@ -16,8 +16,7 @@ export class AuthService {
 
   constructor(
     private angularFire: AngularFireAuth,
-    private router: Router,
-    private editBookService: EditBookService
+    private router: Router
   ) {
     angularFire.authState.subscribe(user => {
       this.user = user;
@@ -48,7 +47,6 @@ export class AuthService {
   logOut() {
     this.angularFire.auth.signOut()
       .then(() => {
-        this.editBookService.bookEditedReset();
         this.router.navigate(['/books']);
       });
   }

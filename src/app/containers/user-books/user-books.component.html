@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Books added to the database</h2>
+  <p>
+    Choose the book from the list to go to it's page - you can edit or delete book from the additional panel visible
+    on the book site.
+  </p>
+  <div class="userBooksContainer">
+    <div class="bookPosition" *ngFor="let book of booksList" (click)="redirect(book.key)">
+      <img class="bookPosImage" src="{{book.imageUrl}}"/>
+      <p class="bookPosTitle">{{book.name}}</p>
+      <p class="bookPosAuthor">{{book.author}}</p>
+    </div>
+  </div>
+</div>

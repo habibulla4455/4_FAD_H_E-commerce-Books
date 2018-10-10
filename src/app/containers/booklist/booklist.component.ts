@@ -12,11 +12,10 @@ export class BooklistComponent implements OnInit {
 
   booksList = new BooksWithCategories();
 
-  constructor(private dbService: DatabaseService, private editBookService: EditBookService) {
+  constructor(private dbService: DatabaseService) {
   }
 
   ngOnInit() {
-    this.editBookService.bookEditedReset();
     this.dbService.bookList.subscribe(books => {
       this.booksList.fantasySciFi = books.filter(book => {
         return book.category === 'fantasySciFi';

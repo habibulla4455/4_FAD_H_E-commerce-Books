@@ -5,10 +5,13 @@
     <p *ngIf="authService.user">Welcome {{authService.user.email}}</p>
     <ul>
       <li>
-        <a routerLink="books">Explore</a>
+        <a routerLink="books" (click)="resetBookEdit()">Explore</a>
       </li>
       <li *ngIf="authService.user">
-        <a routerLink="addbook" (click)="addBookPage()">Add book</a>
+        <a routerLink="userbooks" (click)="resetBookEdit()">My books</a>
+      </li>
+      <li *ngIf="authService.user">
+        <a routerLink="addbook" (click)="resetBookEdit()">Add book</a>
       </li>
       <li *ngIf="!authService.user">
         <a routerLink="login">Log in/Register</a>

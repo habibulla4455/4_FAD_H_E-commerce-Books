@@ -5,12 +5,14 @@ import {AddBookComponent} from './containers/add-book/add-book.component';
 import {LoginComponent} from './containers/login/login.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {SingleBookComponent} from './containers/single-book/single-book.component';
+import {UserBooksComponent} from './containers/user-books/user-books.component';
 
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/books', pathMatch: 'full'},
   {path: 'books', component: BooklistComponent},
   {path: 'books/:id', component: SingleBookComponent},
+  {path: 'userbooks', component: UserBooksComponent, canActivate: [AuthGuardService]},
   {path: 'addbook', component: AddBookComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent}
 ];

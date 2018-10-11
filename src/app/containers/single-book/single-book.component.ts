@@ -4,6 +4,8 @@ import {DatabaseService} from '../../services/database.service';
 import {Book} from '../../model/book';
 import {AuthService} from '../../services/auth.service';
 import {EditBookService} from '../../services/edit-book.service';
+import {UserReadListsService} from '../../services/user-read-lists.service';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-single-book',
@@ -16,13 +18,19 @@ export class SingleBookComponent implements OnInit {
   private sub: any;
   book: Book;
   deleteBookPopup = false;
+  bookOnReadList = false;
+  onReadListId = '';
+  userListSubscription;
+  addRemoveBttnText = 'Add to read list';
 
   constructor(
+    public authservice: AuthService,
     private route: ActivatedRoute,
     private dbService: DatabaseService,
-    public authservice: AuthService,
     private editBookService: EditBookService,
-    private router: Router
+    private router: Router,
+    private userReadListService: UserReadListsService,
+    private angularFireAuth: AngularFireAuth,
   ) {
   }
 
@@ -34,10 +42,36 @@ export class SingleBookComponent implements OnInit {
     this.dbService.book.subscribe(book => {
       this.book = book[0];
     });
+    this.angularFireAuth.authState.subscribe(user => {
+      if (user) {
+        this.userListSubscription = this.userReadListService.userReadList.subscribe(list => {
+          list.forEach(element => {
+            if (element.bookId === this.id) {
+              this.bookOnReadList = true;
+              this.onReadListId = element.key;
+              this.addRemoveBttnText = 'Remove from the list';
+            }
+          });
+        });
+      } else {
+        if (this.userListSubscription) {
+          this.userListSubscription.unsubscribe();
+        }
+      }
+    });
   }
 
   addToRead() {
-    alert('This Functionality not yet implemented in application');
+    if (this.bookOnReadList) {
+      this.userReadListService.removeFromReadList(this.onReadListId);
+      this.onReadListId = '';
+      this.bookOnReadList = false;
+      this.addRemoveBttnText = 'Add to read list';
+
+    } else {
+      this.userReadListService.addToReadList(this.book.name, this.book.author, this.id);
+      this.addRemoveBttnText = 'Remove from the list';
+    }
   }
 
   deleteBook() {

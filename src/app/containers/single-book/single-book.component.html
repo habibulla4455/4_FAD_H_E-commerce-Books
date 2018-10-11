@@ -2,7 +2,7 @@
   <div *ngIf="book" class="singleBookContainer">
     <div class="photoColumn">
       <img class="bookImage" src="{{book.imageUrl}}"/>
-      <button type="button" class="addToRead" (click)="addToRead()">Add to read list</button>
+      <button *ngIf="authservice.user" type="button" class="addToRead" (click)="addToRead()">{{addRemoveBttnText}}</button>
       <div *ngIf="authservice.user && authservice.user.uid === book.userId" class="manageBook">
         <p class="columnTitlePos">Manage your book</p>
         <button type="button" class="addToRead manageBttn" (click)="editbook()">Edit book data</button>

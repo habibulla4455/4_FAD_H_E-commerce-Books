@@ -16,6 +16,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {BookCatContainerComponent} from './components/book-cat-container/book-cat-container.component';
 import {SingleBookComponent} from './containers/single-book/single-book.component';
 import {UserBooksComponent} from './containers/user-books/user-books.component';
+import {ReadListComponent} from './containers/read-list/read-list.component';
 
 const config = {
   apiKey: 'AIzaSyCxwmvvDy6NoUe5Xn3SGg383Zijls1y-RY',
@@ -36,7 +37,8 @@ const config = {
     FooterComponent,
     BookCatContainerComponent,
     SingleBookComponent,
-    UserBooksComponent
+    UserBooksComponent,
+    ReadListComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,7 @@ const config = {
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -12,7 +12,11 @@ import {EditBookService} from '../../services/edit-book.service';
 export class AddBookComponent implements OnInit {
 
   addBookForm: FormGroup;
-  categoryList = ['horror', 'fantasySciFi', 'other'];
+  categoryList = [
+    'action/adventure', 'art/music', 'biographies',
+    'comics', 'cooking', 'crime', 'drama', 'fantasy/SciFi',
+    'history', 'horror', 'kids', 'romance', 'science', 'travel', 'other'
+  ];
   book = new ReactiveBook();
   editingMode = false;
   editedBookId: string;

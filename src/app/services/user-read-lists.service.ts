@@ -37,7 +37,8 @@ export class UserReadListsService {
     const newPosition = {
       title,
       author,
-      bookId: bookId
+      bookId: bookId,
+      read: false
     };
     this.angularFireDB.list('userLists/' + this.authService.user.uid).push(newPosition)
       .then(success => {

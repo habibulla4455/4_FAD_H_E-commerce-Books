@@ -6,6 +6,7 @@ import {LoginComponent} from './containers/login/login.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {SingleBookComponent} from './containers/single-book/single-book.component';
 import {UserBooksComponent} from './containers/user-books/user-books.component';
+import {ReadListComponent} from './containers/read-list/read-list.component';
 
 
 const appRoutes: Routes = [
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
   {path: 'books/:id', component: SingleBookComponent},
   {path: 'userbooks', component: UserBooksComponent, canActivate: [AuthGuardService]},
   {path: 'addbook', component: AddBookComponent, canActivate: [AuthGuardService]},
+  {path: 'readlist', component: ReadListComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent}
 ];
 

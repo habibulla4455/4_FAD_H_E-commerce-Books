@@ -8,6 +8,9 @@
         <a routerLink="books" (click)="resetBookEdit()">Explore</a>
       </li>
       <li *ngIf="authService.user">
+        <a routerLink="readlist" (click)="resetBookEdit()">Reading list</a>
+      </li>
+      <li *ngIf="authService.user">
         <a routerLink="userbooks" (click)="resetBookEdit()">My books</a>
       </li>
       <li *ngIf="authService.user">

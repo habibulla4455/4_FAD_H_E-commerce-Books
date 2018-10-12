@@ -1,92 +1,101 @@
 <div class="container booklistContainer">
-  <app-book-cat-container
-    *ngIf="booksList.actionAndAdventure && booksList.actionAndAdventure.length > 0"
-    [books]="booksList.actionAndAdventure"
-    [linkTo]="'actionadventure'"
-    [categoryName]="'Action and Adventure'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.fantasySciFi && booksList.fantasySciFi.length > 0"
-    [books]="booksList.fantasySciFi"
-    [linkTo]="'fantasySciFi'"
-    [categoryName]="'Fantasy, Science Fiction'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.crime && booksList.crime.length > 0"
-    [linkTo]="'crime'"
-    [books]="booksList.crime"
-    [categoryName]="'Crime'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.drama && booksList.drama.length > 0"
-    [linkTo]="'drama'"
-    [books]="booksList.drama"
-    [categoryName]="'Drama'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.history && booksList.history.length > 0"
-    [linkTo]="'history'"
-    [books]="booksList.history"
-    [categoryName]="'History'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.horror && booksList.horror.length > 0"
-    [linkTo]="'horror'"
-    [books]="booksList.horror"
-    [categoryName]="'Horror'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.romance && booksList.romance.length > 0"
-    [linkTo]="'romance'"
-    [books]="booksList.romance"
-    [categoryName]="'Romance'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.kids && booksList.kids.length > 0"
-    [linkTo]="'kids'"
-    [books]="booksList.kids"
-    [categoryName]="'Kids'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.science && booksList.science.length > 0"
-    [linkTo]="'science'"
-    [books]="booksList.science"
-    [categoryName]="'Science'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.travel && booksList.travel.length > 0"
-    [linkTo]="'travel'"
-    [books]="booksList.travel"
-    [categoryName]="'Travel'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.cooking && booksList.cooking.length > 0"
-    [linkTo]="'cooking'"
-    [books]="booksList.cooking"
-    [categoryName]="'Cooking'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.comics && booksList.comics.length > 0"
-    [linkTo]="'comics'"
-    [books]="booksList.comics"
-    [categoryName]="'Comics'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.artMusic && booksList.artMusic.length > 0"
-    [linkTo]="'artmusic'"
-    [books]="booksList.artMusic"
-    [categoryName]="'Art and Music'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.biographies && booksList.biographies.length > 0"
-    [linkTo]="'biographies'"
-    [books]="booksList.biographies"
-    [categoryName]="'Autobiographies'">
-  </app-book-cat-container>
-  <app-book-cat-container
-    *ngIf="booksList.other && booksList.other.length > 0"
-    [linkTo]="'other'"
-    [books]="booksList.other"
-    [categoryName]="'Other books'">
-  </app-book-cat-container>
+  <input
+    type="text"
+    class="searchBar"
+    [(ngModel)]="searchPhrase"
+    (ngModelChange)="searchChange()"
+    placeholder="Looking for something?"
+  />
+  <ng-container *ngIf="searchPhrase === ''">
+    <app-book-cat-container
+      *ngIf="booksList.actionAndAdventure && booksList.actionAndAdventure.length > 0"
+      [books]="booksList.actionAndAdventure"
+      [linkTo]="'actionadventure'"
+      [categoryName]="'Action and Adventure'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.fantasySciFi && booksList.fantasySciFi.length > 0"
+      [books]="booksList.fantasySciFi"
+      [linkTo]="'fantasySciFi'"
+      [categoryName]="'Fantasy, Science Fiction'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.crime && booksList.crime.length > 0"
+      [linkTo]="'crime'"
+      [books]="booksList.crime"
+      [categoryName]="'Crime'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.drama && booksList.drama.length > 0"
+      [linkTo]="'drama'"
+      [books]="booksList.drama"
+      [categoryName]="'Drama'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.history && booksList.history.length > 0"
+      [linkTo]="'history'"
+      [books]="booksList.history"
+      [categoryName]="'History'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.horror && booksList.horror.length > 0"
+      [linkTo]="'horror'"
+      [books]="booksList.horror"
+      [categoryName]="'Horror'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.romance && booksList.romance.length > 0"
+      [linkTo]="'romance'"
+      [books]="booksList.romance"
+      [categoryName]="'Romance'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.kids && booksList.kids.length > 0"
+      [linkTo]="'kids'"
+      [books]="booksList.kids"
+      [categoryName]="'Kids'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.science && booksList.science.length > 0"
+      [linkTo]="'science'"
+      [books]="booksList.science"
+      [categoryName]="'Science'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.travel && booksList.travel.length > 0"
+      [linkTo]="'travel'"
+      [books]="booksList.travel"
+      [categoryName]="'Travel'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.cooking && booksList.cooking.length > 0"
+      [linkTo]="'cooking'"
+      [books]="booksList.cooking"
+      [categoryName]="'Cooking'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.comics && booksList.comics.length > 0"
+      [linkTo]="'comics'"
+      [books]="booksList.comics"
+      [categoryName]="'Comics'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.artMusic && booksList.artMusic.length > 0"
+      [linkTo]="'artmusic'"
+      [books]="booksList.artMusic"
+      [categoryName]="'Art and Music'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.biographies && booksList.biographies.length > 0"
+      [linkTo]="'biographies'"
+      [books]="booksList.biographies"
+      [categoryName]="'Autobiographies'">
+    </app-book-cat-container>
+    <app-book-cat-container
+      *ngIf="booksList.other && booksList.other.length > 0"
+      [linkTo]="'other'"
+      [books]="booksList.other"
+      [categoryName]="'Other books'">
+    </app-book-cat-container>
+  </ng-container>
 </div>

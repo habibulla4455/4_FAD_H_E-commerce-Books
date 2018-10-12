@@ -11,6 +11,8 @@ import {EditBookService} from '../../services/edit-book.service';
 export class BooklistComponent implements OnInit {
 
   booksList = new BooksWithCategories();
+  booksSearched: Array<Book>;
+  searchPhrase = '';
 
   constructor(private dbService: DatabaseService) {
   }
@@ -65,6 +67,21 @@ export class BooklistComponent implements OnInit {
     });
   }
 
+  searchChange() {
+    this.booksSearched = [];
+    if (this.searchPhrase !== '') {
+      for (const key in this.booksList) {
+        if (this.booksList[key]) {
+          this.booksList[key].forEach(book => {
+            if ((book.author.toLowerCase().indexOf(this.searchPhrase.toLowerCase()) > (-1)) ||
+              book.name.toLowerCase().indexOf(this.searchPhrase.toLowerCase()) > (-1)) {
+              this.booksSearched.push(book);
+            }
+          });
+        }
+      }
+    }
+  }
 }
 
 class BooksWithCategories {

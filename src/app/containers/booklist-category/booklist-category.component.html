@@ -1,0 +1,16 @@
+<div class="container">
+  <ng-container *ngIf="!categoryIsValid">
+    <h2>404 Error - invalid path name (category doesn't exist)</h2>
+  </ng-container>
+  <ng-container *ngIf="categoryIsValid">
+    <h2>Book category: {{category['name']}}</h2>
+    <p>Explore books from specific category.</p>
+    <div class="userBooksContainer">
+      <div class="bookPosition" *ngFor="let book of booksList" (click)="redirect(book.key)">
+        <img class="bookPosImage" src="{{book.imageUrl}}"/>
+        <p class="bookPosTitle">{{book.name}}</p>
+        <p class="bookPosAuthor">{{book.author}}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>

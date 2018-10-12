@@ -1,5 +1,6 @@
 import {Component, ElementRef, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {Book} from '../../model/book';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-book-cat-container',
@@ -10,6 +11,7 @@ export class BookCatContainerComponent implements OnInit, OnChanges {
 
   @Input() books: Array<Book>;
   @Input() categoryName: string;
+  @Input() linkTo: string;
 
   bookListWidth = 0;
   bookListPos = 0;
@@ -18,7 +20,7 @@ export class BookCatContainerComponent implements OnInit, OnChanges {
 
   @ViewChild('listContainer') listContainer: ElementRef;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
@@ -59,5 +61,9 @@ export class BookCatContainerComponent implements OnInit, OnChanges {
     } else {
       this.rightBttonVisible = 0;
     }
+  }
+
+  redirectToCategory() {
+    this.router.navigate(['bookscategory/' + this.linkTo]);
   }
 }

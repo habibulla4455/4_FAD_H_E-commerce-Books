@@ -1,14 +1,14 @@
 <section class="categoryContainer" (window:resize)="onResize()">
-  <h2>{{categoryName}}</h2>
+  <h2 (click)="redirectToCategory()">{{categoryName}}</h2>
   <div class="booksContainer">
     <span class="changePicButton" (click)="goRight()" [style.opacity]="leftBttnVisible"><</span>
     <div class="listContainer" #listContainer>
       <ul class="booksList" [style.width]="bookListWidth + 'px'" [style.left]="bookListPos + 'px'">
         <li class="bookPosition" *ngFor="let book of books" routerLink="{{book.key}}">
-          <img class="bookPosImage" src="{{book.imageUrl}}"/>
-          <p class="bookPosTitle">{{book.name}}</p>
-          <p class="bookPosAuthor">{{book.author}}</p>
-        </li>
+        <img class="bookPosImage" src="{{book.imageUrl}}"/>
+        <p class="bookPosTitle">{{book.name}}</p>
+        <p class="bookPosAuthor">{{book.author}}</p>
+      </li>
       </ul>
     </div>
     <span class="changePicButton" (click)="goLeft()" [style.opacity]="rightBttonVisible">></span>

@@ -10,6 +10,13 @@
 
 h2 {
   margin-bottom: 5px;
+  transition: 0.5s;
+}
+
+h2:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 25px;
 }
 
 .changePicButton {

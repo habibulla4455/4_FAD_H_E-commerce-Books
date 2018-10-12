@@ -4,6 +4,7 @@ import {AngularFireDatabase} from '@angular/fire/database';
 import {BehaviorSubject, EMPTY, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {AngularFireAuth} from '@angular/fire/auth';
+import {ReadingListPos} from '../model/readingListPos';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,22 @@ export class UserReadListsService {
 
   removeFromReadList(bookId) {
     this.angularFireDB.list('userLists/' + this.authService.user.uid).remove(bookId)
+      .then(() => {
+        }
+      ).catch(err => {
+      alert(err);
+    });
+  }
+
+  modifyListPosition(position: ReadingListPos) {
+    const modifiedPosition = {
+      author: position.author,
+      bookId: position.bookId,
+      read: position.read,
+      title: position.title
+    };
+
+    this.angularFireDB.list('userLists/' + this.authService.user.uid).set(position.key, modifiedPosition)
       .then(() => {
         }
       ).catch(err => {

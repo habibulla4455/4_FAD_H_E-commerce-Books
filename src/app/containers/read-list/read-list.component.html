@@ -1,3 +1,36 @@
-<p>
-  read-list works!
-</p>
+<div class="container">
+  <div class="listContainer">
+    <div class="toReadList">
+      <h2>Read list</h2>
+      <p class="emptyInfo" *ngIf="readList && !readList.length">
+        Your list is empty - add some books from explore section by clicking on 'Add to read list' button.
+      </p>
+      <div *ngFor="let element of readList" class="toReadPosition" (click)="navigateToBook(element.bookId)">
+        <div class="description">
+          <p class="title">{{element.title}}</p>
+          <p class="author">by {{element.author}}</p>
+        </div>
+        <div class="buttons">
+          <button type="button" #markReadBttnRef (click)="markAsRead(element, $event)">Mark as read</button>
+          <button type="button" class="removeBttn" (click)="removeFromList(element.key, $event)">Remove</button>
+        </div>
+      </div>
+    </div>
+    <div class="alreadyReadList">
+      <h2>Already read</h2>
+      <p class="emptyInfo" *ngIf="alreadyReadList && !alreadyReadList.length">
+        This list is empty - when you mark some books from read list as read, these positions will show here.
+      </p>
+      <div *ngFor="let element of alreadyReadList" class="toReadPosition" (click)="navigateToBook(element.bookId)">
+        <div class="description">
+          <p class="title">{{element.title}}</p>
+          <p class="author">by {{element.author}}</p>
+        </div>
+        <div class="buttons">
+          <button type="button" (click)="markAsToRead(element, $event)">Mark as to read</button>
+          <button type="button" class="removeBttn" (click)="removeFromList(element.key, $event)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -71,6 +71,12 @@ p {
   font-size: 20px;
 }
 
+.addToRead:disabled {
+  background-color: lightgray;
+  font-size: 18px;
+  cursor: default;
+}
+
 .columnTitlePos {
   font-weight: bold;
   font-size: 20px;

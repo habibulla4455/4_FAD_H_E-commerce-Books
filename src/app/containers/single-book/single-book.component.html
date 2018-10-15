@@ -1,46 +1,52 @@
 <div class="container">
-  <div *ngIf="book" class="singleBookContainer">
-    <div class="photoColumn">
-      <img class="bookImage" src="{{book.imageUrl}}"/>
-      <button
-        *ngIf="authservice.user"
-        type="button" class="addToRead"
-        (click)="addToRead()"
-        [style.background-color]="getAddToListStyle()"
-      >
-        {{addRemoveBttnText}}
-      </button>
-      <button
-        *ngIf="!authservice.user"
-        type="button"
-        class="addToRead"
-        [disabled]="true"
-      >
-        Sign In to create read list
-      </button>
-      <div *ngIf="authservice.user && authservice.user.uid === book.userId" class="manageBook">
-        <p class="columnTitlePos">Manage your book</p>
-        <button type="button" class="addToRead manageBttn" (click)="editbook()">Edit book data</button>
-        <button type="button" class="addToRead manageBttn deleteBttn" (click)="deleteBookPopup = true">Delete book</button>
+  <ng-container *ngIf="book != undefined && book.author != undefined">
+    <div *ngIf="book" class="singleBookContainer">
+      <div class="photoColumn">
+        <img class="bookImage" src="{{book.imageUrl}}"/>
+        <button
+          *ngIf="authservice.user"
+          type="button" class="addToRead"
+          (click)="addToRead()"
+          [style.background-color]="getAddToListStyle()"
+        >
+          {{addRemoveBttnText}}
+        </button>
+        <button
+          *ngIf="!authservice.user"
+          type="button"
+          class="addToRead"
+          [disabled]="true"
+        >
+          Sign In to create read list
+        </button>
+        <div *ngIf="authservice.user && authservice.user.uid === book.userId" class="manageBook">
+          <p class="columnTitlePos">Manage your book</p>
+          <button type="button" class="addToRead manageBttn" (click)="editbook()">Edit book data</button>
+          <button type="button" class="addToRead manageBttn deleteBttn" (click)="deleteBookPopup = true">Delete book
+          </button>
+        </div>
+        <p class="columnTitlePos">Publisher</p>
+        <p>{{book.publisher}}</p>
+        <p class="columnTitlePos">Released</p>
+        <p>{{book.released | date:'longDate'}}</p>
+        <p class="columnTitlePos">Added to database/Edited</p>
+        <p>{{book.created | date:'longDate'}}</p>
       </div>
-      <p class="columnTitlePos">Publisher</p>
-      <p>{{book.publisher}}</p>
-      <p class="columnTitlePos">Released</p>
-      <p>{{book.released | date:'longDate'}}</p>
-      <p class="columnTitlePos">Added to database/Edited</p>
-      <p>{{book.created | date:'longDate'}}</p>
+      <div class="descriptionColumn">
+        <h2>{{book.name}}</h2>
+        <p class="bookAuthor">By {{book.author}}</p>
+        <p class="bookCategory"><span class="columnTitlePos">Category</span>: {{book.category}}</p>
+        <p class="bookDescHeader">Description</p>
+        <p class="bookDescMain">{{book.descriptionMain}}</p>
+        <p class="bookDescDetail" *ngFor="let bookdescription of book.descriptionDetail">
+          {{bookdescription}}
+        </p>
+      </div>
     </div>
-    <div class="descriptionColumn">
-      <h2>{{book.name}}</h2>
-      <p class="bookAuthor">By {{book.author}}</p>
-      <p class="bookCategory"><span class="columnTitlePos">Category</span>: {{book.category}}</p>
-      <p class="bookDescHeader">Description</p>
-      <p class="bookDescMain">{{book.descriptionMain}}</p>
-      <p class="bookDescDetail" *ngFor="let bookdescription of book.descriptionDetail">
-        {{bookdescription}}
-      </p>
-    </div>
-  </div>
+  </ng-container>
+  <ng-container *ngIf="book != undefined && book.author == undefined">
+    <h2 style="margin: 40px 0">Error 404 - Invalid Book id or book no longer extists in database</h2>
+  </ng-container>
 </div>
 <div *ngIf="deleteBookPopup" class="deletePopup">
   <div class="deleteWindow">

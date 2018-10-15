@@ -43,8 +43,16 @@
         </span>
       </label>
       <div formArrayName="bookDescriptionDetail">
-        <div *ngFor="let paragraph of addBookForm.get('bookDescriptionDetail')['controls']; let i = index">
+        <div
+          class="descDetailPos"
+          *ngFor="let paragraph of addBookForm.get('bookDescriptionDetail')['controls']; let i = index"
+        >
           <textarea class="bookDescInput" rows="4" cols="50" [formControlName]="i"></textarea>
+          <span
+            (click)="removeDetailPos(i)"
+            *ngIf="addBookForm.get('bookDescriptionDetail')['controls'].length > 1" class="deleteDescPos">
+            X
+          </span>
         </div>
       </div>
       <button type="button" class="newParagraph" (click)="newParagraph()">Add new paragraph</button>

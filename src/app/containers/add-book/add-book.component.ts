@@ -83,6 +83,11 @@ export class AddBookComponent implements OnInit {
       this.dbService.createNewBook(this.book);
     }
   }
+
+  removeDetailPos(index: number ){
+    const arr = <FormArray>this.addBookForm.get('bookDescriptionDetail');
+    arr.removeAt(index);
+  }
 }
 
 class ReactiveBook {

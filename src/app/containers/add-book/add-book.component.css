@@ -151,3 +151,27 @@ button[type="submit"]:disabled {
     width: 100%;
   }
 }
+
+.descDetailPos {
+  position: relative;
+}
+
+.deleteDescPos {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: grey;
+  padding: 6px 6px 4px 6px;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  opacity: 0.3;
+  transition: 0.5s;
+}
+
+.deleteDescPos:hover {
+  background-color: crimson;
+  cursor: pointer;
+  opacity: 1;
+}

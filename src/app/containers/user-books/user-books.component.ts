@@ -25,9 +25,4 @@ export class UserBooksComponent implements OnInit {
       this.booksList = books.filter(book => book.userId === this.authService.user.uid);
     });
   }
-
-  redirect(bookId) {
-    this.router.navigate(['books/' + bookId]);
-  }
-
 }

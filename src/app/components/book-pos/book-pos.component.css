@@ -1,0 +1,44 @@
+.userBooksContainer {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bookPosition {
+  float: left;
+  height: 300px;
+  padding: 5px 10px;
+  width: 160px;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 5px;
+  background-color: rgb(241, 241, 241);
+  border: 1px solid rgb(226, 226, 226);
+  margin: 7px;
+}
+
+.bookPosImage {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  box-shadow: 3px 3px 5px 0 rgba(125, 125, 125, 1)
+}
+
+.bookPosTitle {
+  text-align: center;
+  margin: 3px;
+  font-weight: bold;
+}
+
+.bookPosAuthor {
+  text-align: center;
+  font-style: italic;
+}
+
+.bookPosition:hover {
+  background-color: cornflowerblue;
+  border: 1px solid lightblue;
+  padding: 7px 12px;
+}

@@ -5,12 +5,6 @@
   <ng-container *ngIf="categoryIsValid">
     <h2>Book category: {{category['name']}}</h2>
     <p>Explore books from specific category.</p>
-    <div class="userBooksContainer">
-      <div class="bookPosition" *ngFor="let book of booksList" (click)="redirect(book.key)">
-        <img class="bookPosImage" src="{{book.imageUrl}}"/>
-        <p class="bookPosTitle">{{book.name}}</p>
-        <p class="bookPosAuthor">{{book.author}}</p>
-      </div>
-    </div>
+    <app-book-pos [booksList]="booksList"></app-book-pos>
   </ng-container>
 </div>

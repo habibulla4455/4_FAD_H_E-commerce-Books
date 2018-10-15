@@ -18,6 +18,7 @@ import {SingleBookComponent} from './containers/single-book/single-book.componen
 import {UserBooksComponent} from './containers/user-books/user-books.component';
 import {ReadListComponent} from './containers/read-list/read-list.component';
 import {BooklistCategoryComponent} from './containers/booklist-category/booklist-category.component';
+import {BookPosComponent} from './components/book-pos/book-pos.component';
 
 const config = {
   apiKey: 'AIzaSyCxwmvvDy6NoUe5Xn3SGg383Zijls1y-RY',
@@ -40,7 +41,8 @@ const config = {
     SingleBookComponent,
     UserBooksComponent,
     ReadListComponent,
-    BooklistCategoryComponent
+    BooklistCategoryComponent,
+    BookPosComponent
   ],
   imports: [
     BrowserModule,

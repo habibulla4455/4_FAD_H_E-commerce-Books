@@ -83,10 +83,6 @@ export class BooklistComponent implements OnInit {
       }
     }
   }
-
-  redirect(bookId) {
-    this.router.navigate(['books/' + bookId]);
-  }
 }
 
 class BooksWithCategories {

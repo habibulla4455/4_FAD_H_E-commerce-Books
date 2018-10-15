@@ -54,8 +54,4 @@ export class BooklistCategoryComponent implements OnInit {
       });
     });
   }
-
-  redirect(bookId) {
-    this.router.navigate(['books/' + bookId]);
-  }
 }

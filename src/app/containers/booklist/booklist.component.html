@@ -100,12 +100,6 @@
   </ng-container>
   <ng-container *ngIf="searchPhrase !== ''">
     <h2>Search results</h2>
-    <div class="userBooksContainer">
-      <div class="bookPosition" *ngFor="let book of booksSearched" (click)="redirect(book.key)">
-        <img class="bookPosImage" src="{{book.imageUrl}}"/>
-        <p class="bookPosTitle">{{book.name}}</p>
-        <p class="bookPosAuthor">{{book.author}}</p>
-      </div>
-    </div>
+    <app-book-pos [booksList]="booksSearched"></app-book-pos>
   </ng-container>
 </div>

@@ -31,7 +31,11 @@
       </label>
       <input type="text" class="wideInput" id="imageUrl" formControlName="imageUrl"/>
       <p class="inputTitle">Image preview</p>
-      <img class="bookImage" src="{{this.addBookForm.value.imageUrl}}" alt="Invalid URL"/>
+      <img
+        class="bookImage"
+        src="{{this.addBookForm.value.imageUrl}}"
+        onerror="this.src='https://3mxwfc45nzaf2hj9w92hd04y-wpengine.netdna-ssl.com/wp-content/uploads/2015/03/inside-page-style-blank-3.jpg';"
+      />
     </div>
     <div class="formDescription">
       <label for="bookDescriptionMain" class="inputTitle topMargin">Main Description</label>

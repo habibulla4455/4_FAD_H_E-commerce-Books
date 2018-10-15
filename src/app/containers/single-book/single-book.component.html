@@ -6,6 +6,7 @@
         *ngIf="authservice.user"
         type="button" class="addToRead"
         (click)="addToRead()"
+        [style.background-color]="getAddToListStyle()"
       >
         {{addRemoveBttnText}}
       </button>

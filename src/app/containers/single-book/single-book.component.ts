@@ -82,4 +82,10 @@ export class SingleBookComponent implements OnInit {
     this.editBookService.bookEditedSet({key: this.id, ...this.book});
     this.router.navigate(['addbook']);
   }
+
+  getAddToListStyle() {
+    if (this.bookOnReadList) {
+      return 'crimson';
+    }
+  }
 }

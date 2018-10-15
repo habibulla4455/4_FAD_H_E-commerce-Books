@@ -1,7 +1,7 @@
 <div class="userBooksContainer">
   <div class="bookPosition" *ngFor="let book of booksList" (click)="redirect(book.key)">
     <img class="bookPosImage" src="{{book.imageUrl}}"/>
-    <p class="bookPosTitle">{{book.name}}</p>
-    <p class="bookPosAuthor">{{book.author}}</p>
+    <p class="bookPosTitle">{{book.name | slice:0:30 }}<span *ngIf="book.name.length > 29">...</span></p>
+    <p class="bookPosAuthor">{{book.author | slice:0:16 }}<span *ngIf="book.author.length > 15">...</span></p>
   </div>
 </div>

@@ -38,6 +38,10 @@ h2 {
   background-color: rgb(196, 218, 255);
 }
 
+.description {
+  max-width: 275px;
+}
+
 .title {
   font-weight: bold;
   font-size: 20px;

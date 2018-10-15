@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DatabaseService} from '../../services/database.service';
 import {Book} from '../../model/book';
 import {EditBookService} from '../../services/edit-book.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-booklist',
@@ -14,7 +15,7 @@ export class BooklistComponent implements OnInit {
   booksSearched: Array<Book>;
   searchPhrase = '';
 
-  constructor(private dbService: DatabaseService) {
+  constructor(private dbService: DatabaseService, private router: Router) {
   }
 
   ngOnInit() {
@@ -81,6 +82,10 @@ export class BooklistComponent implements OnInit {
         }
       }
     }
+  }
+
+  redirect(bookId) {
+    this.router.navigate(['books/' + bookId]);
   }
 }
 

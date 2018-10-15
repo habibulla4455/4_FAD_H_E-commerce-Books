@@ -21,14 +21,14 @@
       <div *ngIf="authservice.user && authservice.user.uid === book.userId" class="manageBook">
         <p class="columnTitlePos">Manage your book</p>
         <button type="button" class="addToRead manageBttn" (click)="editbook()">Edit book data</button>
-        <button type="button" class="addToRead manageBttn" (click)="deleteBookPopup = true">Delete book</button>
+        <button type="button" class="addToRead manageBttn deleteBttn" (click)="deleteBookPopup = true">Delete book</button>
       </div>
       <p class="columnTitlePos">Publisher</p>
       <p>{{book.publisher}}</p>
       <p class="columnTitlePos">Released</p>
-      <p>{{book.released}}</p>
-      <p class="columnTitlePos">Added/Edited to database</p>
-      <p>{{book.created}}</p>
+      <p>{{book.released | date:'longDate'}}</p>
+      <p class="columnTitlePos">Added to database/Edited</p>
+      <p>{{book.created | date:'longDate'}}</p>
     </div>
     <div class="descriptionColumn">
       <h2>{{book.name}}</h2>
@@ -45,7 +45,7 @@
 <div *ngIf="deleteBookPopup" class="deletePopup">
   <div class="deleteWindow">
     <p>Do you really want to delete this book?</p>
-    <button type="button" class="addToRead manageBttn" (click)="deleteBook()">Yes</button>
+    <button type="button" class="addToRead manageBttn deleteBttn" (click)="deleteBook()">Yes</button>
     <button type="button" class="addToRead manageBttn" (click)="deleteBookPopup = false">No</button>
   </div>
 </div>

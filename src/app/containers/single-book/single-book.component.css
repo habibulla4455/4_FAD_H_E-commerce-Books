@@ -11,6 +11,7 @@ p {
 .photoColumn {
   width: 300px;
   padding: 10px;
+  border-right: 1px solid lightgray;
 }
 
 .descriptionColumn {
@@ -26,6 +27,7 @@ p {
   .photoColumn {
     width: 100%;
     text-align: center;
+    border: none;
   }
 
   h2 {
@@ -48,6 +50,8 @@ p {
   margin: 0 auto;
   object-fit: cover;
   object-position: 50% 50%;
+  border: 1px solid lightgray;
+  box-shadow: 3px 3px 5px 0 rgba(125, 125, 125, 1);
 }
 
 .addToRead {
@@ -77,6 +81,14 @@ p {
   cursor: default;
 }
 
+.deleteBttn {
+  background: crimson;
+}
+
+.deleteBttn:hover {
+  background: crimson;
+}
+
 .columnTitlePos {
   font-weight: bold;
   font-size: 20px;
@@ -102,11 +114,13 @@ h2 {
 }
 
 .bookDescMain {
+  font-family: 'Krub', sans-serif;
   margin-bottom: 15px;
   font-weight: bold;
 }
 
 .bookDescDetail {
+  font-family: 'Krub', sans-serif;
   margin-bottom: 10px;
 }
 

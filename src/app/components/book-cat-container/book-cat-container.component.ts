@@ -49,7 +49,7 @@ export class BookCatContainerComponent implements OnInit, OnChanges {
     if (this.bookListPos + this.bookListWidth > this.listContainer.nativeElement.clientWidth) {
       this.bookListPos -= 160;
       this.leftBttnVisible = 1;
-      if (this.bookListPos - 160 + this.bookListWidth < this.listContainer.nativeElement.clientWidth) {
+      if (this.bookListPos + this.bookListWidth < this.listContainer.nativeElement.clientWidth) {
         this.rightBttonVisible = 0;
       }
     }

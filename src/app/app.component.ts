@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AuthService} from './services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,19 @@ import {AuthService} from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  menuVisible = false;
+
+  constructor(private router: Router) {
+
+  }
+
+  menuStateChanged(menuVis: boolean) {
+    this.menuVisible = menuVis;
+  }
+
+  navigateToCategory(category: string) {
+    this.router.navigate(['bookscategory/' + category]);
+    this.menuVisible = false;
+  }
 }

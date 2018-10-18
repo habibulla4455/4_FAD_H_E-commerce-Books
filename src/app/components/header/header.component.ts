@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {EditBookService} from '../../services/edit-book.service';
 
@@ -8,6 +8,8 @@ import {EditBookService} from '../../services/edit-book.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  @Output() menuVisState = new EventEmitter<boolean>();
 
   constructor(public authService: AuthService, private editBookService: EditBookService) {
 
@@ -20,5 +22,9 @@ export class HeaderComponent {
 
   resetBookEdit() {
     this.editBookService.bookEditedReset();
+  }
+
+  toggleMenuState() {
+    this.menuVisState.emit(true);
   }
 }

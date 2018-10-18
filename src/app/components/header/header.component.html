@@ -2,7 +2,12 @@
   <div class="container">
     <div class="headerContainer">
       <div class="titleAndMenuBttn">
-        <img class="toggleMenu" src="assets/images/menu_toggle.jpg" height="32" width="50"/>
+        <img
+          class="toggleMenu"
+          src="assets/images/menu_toggle.jpg"
+          height="32" width="50"
+          (click)="toggleMenuState()"
+        />
         <h1>BOOKSBASE</h1>
       </div>
       <p *ngIf="authService.user">Welcome {{authService.user.email}}</p>

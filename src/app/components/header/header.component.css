@@ -45,6 +45,10 @@ p {
   justify-content: center;
 }
 
+.toggleMenu:hover {
+  cursor: pointer;
+}
+
 @media( max-width: 1040px ) {
   .headerContainer {
     padding: 15px;

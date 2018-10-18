@@ -58,6 +58,7 @@ h2:hover {
   border-radius: 5px;
   background-color: rgb(241, 241, 241);
   border: 1px solid rgb(226, 226, 226);
+  position: relative;
 }
 
 .bookPosition:hover {
@@ -72,6 +73,13 @@ h2:hover {
   object-fit: cover;
   object-position: 50% 50%;
   box-shadow: 3px 3px 5px 0 rgba(125, 125, 125, 1);
+}
+
+.bookOnList {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  border: 1px solid white;
 }
 
 .bookPosTitle {

@@ -1,5 +1,5 @@
-.singleBookContainer{
-  display:flex;
+.singleBookContainer {
+  display: flex;
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -12,6 +12,7 @@ p {
   width: 300px;
   padding: 10px;
   border-right: 1px solid lightgray;
+  position: relative;
 }
 
 .descriptionColumn {
@@ -19,7 +20,7 @@ p {
   flex-grow: 1;
 }
 
-@media( max-width: 830px ) {
+@media ( max-width: 830px ) {
   .singleBookContainer {
     flex-direction: column;
   }
@@ -41,6 +42,11 @@ p {
   .bookCategory {
     text-align: center;
   }
+
+  .bookOnList {
+    left: 50%;
+    transform: translateX( 360% );
+  }
 }
 
 .bookImage {
@@ -52,6 +58,14 @@ p {
   object-position: 50% 50%;
   border: 1px solid lightgray;
   box-shadow: 3px 3px 5px 0 rgba(125, 125, 125, 1);
+}
+
+.bookOnList {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 11px;
+  right: 11px;
 }
 
 .addToRead {
@@ -136,7 +150,7 @@ h2 {
   width: 100%;
 }
 
-.deletePopup{
+.deletePopup {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -145,7 +159,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .deleteWindow {

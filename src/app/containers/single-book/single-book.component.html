@@ -3,6 +3,7 @@
     <div *ngIf="book" class="singleBookContainer">
       <div class="photoColumn">
         <img class="bookImage" src="{{book.imageUrl}}"/>
+        <img *ngIf="bookOnReadList" class="bookOnList" src="assets/images/on_list.jpg"/>
         <button
           *ngIf="authservice.user"
           type="button" class="addToRead"

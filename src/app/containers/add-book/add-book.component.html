@@ -6,6 +6,7 @@
   </p>
   <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()" class="addBookContainer">
     <div class="formColMain">
+      <h3>Main infromation</h3>
       <label for="bookName" class="inputTitle">Title</label>
       <input type="text" class="wideInput" id="bookName" formControlName="bookName"/>
       <label for="bookAuthor" class="inputTitle">Author</label>
@@ -24,6 +25,7 @@
       </div>
     </div>
     <div class="formColPicture">
+      <h3>Book cover image</h3>
       <label for="imageUrl" class="inputTitle">Image URL
         <span class="additionalInfo">
           (paste image addres from internet)
@@ -38,6 +40,7 @@
       />
     </div>
     <div class="formDescription">
+      <h3>Book description</h3>
       <label for="bookDescriptionMain" class="inputTitle topMargin">Main Description</label>
       <textarea id="bookDescriptionMain" class="bookDescInput" rows="4" cols="50"
                 formControlName="bookDescriptionMain"></textarea>

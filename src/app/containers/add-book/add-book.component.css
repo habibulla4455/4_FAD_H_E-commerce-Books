@@ -3,9 +3,14 @@ h2 {
   margin-bottom: 10px;
 }
 
+h3 {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 20px;
+}
+
 .addBookDesc {
   width: 700px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .addBookContainer {
@@ -28,6 +33,7 @@ h2 {
 .formDescription {
   width: 100%;
   padding: 10px;
+  margin-top: 20px;
 }
 
 .inputTitle {

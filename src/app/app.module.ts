@@ -19,6 +19,7 @@ import {UserBooksComponent} from './containers/user-books/user-books.component';
 import {ReadListComponent} from './containers/read-list/read-list.component';
 import {BooklistCategoryComponent} from './containers/booklist-category/booklist-category.component';
 import {BookPosComponent} from './components/book-pos/book-pos.component';
+import {CategoryMenuComponent} from './components/category-menu/category-menu.component';
 
 const config = {
   apiKey: 'AIzaSyCxwmvvDy6NoUe5Xn3SGg383Zijls1y-RY',
@@ -42,7 +43,8 @@ const config = {
     UserBooksComponent,
     ReadListComponent,
     BooklistCategoryComponent,
-    BookPosComponent
+    BookPosComponent,
+    CategoryMenuComponent
   ],
   imports: [
     BrowserModule,

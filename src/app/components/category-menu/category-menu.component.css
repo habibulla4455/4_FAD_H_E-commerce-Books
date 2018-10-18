@@ -1,0 +1,41 @@
+.sideMenu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300px;
+  background: rgba(251, 251, 251, 0.8);
+  border-right: 1px solid lightgray;
+  height: 100vh;
+  transition: 0.5s;
+  overflow: auto;
+}
+
+h2 {
+  margin-top: 51px;
+  padding-left: 10px;
+  border-bottom: 3px solid black;
+}
+
+ul {
+  margin-top: 15px;
+}
+
+li {
+  font-size: 20px;
+  transition: 0.5s;
+  padding: 10px 10px;
+}
+
+li:hover {
+  padding-left: 20px;
+  background-color: cornflowerblue;
+  color: white;
+  cursor: pointer;
+}
+
+
+@media (max-width: 1780px) {
+  .sideMenu {
+    left: -300px;
+  }
+}

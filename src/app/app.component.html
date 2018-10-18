@@ -7,5 +7,10 @@
   (menuVisState)="menuStateChanged($event)"
 >
 </app-category-menu>
-<div *ngIf="menuVisible" (click)="menuVisible=false; menuPos=-300" class="greyBackground"></div>
+<div
+  *ngIf="menuVisible"
+  (click)="menuVisible=false; menuPos=-300"
+  class="greyBackground"
+>
+</div>
 <app-footer></app-footer>

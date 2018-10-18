@@ -8,7 +8,13 @@ header {
   justify-content: space-between;
 }
 
+.titleAndMenuBttn {
+  display: flex;
+  justify-content: center;
+}
+
 h1 {
+  margin-left: 10px;
   font-size: 40px;
 }
 
@@ -39,7 +45,7 @@ p {
   justify-content: center;
 }
 
-@media( max-width: 730px ) {
+@media( max-width: 1040px ) {
   .headerContainer {
     padding: 15px;
     display: block;
@@ -54,5 +60,15 @@ p {
     margin-top: 15px;
     display: flex;
     justify-content: center;
+  }
+
+  .toggleMenu {
+    display: none;
+  }
+}
+
+@media (min-width: 1781px) {
+  .toggleMenu {
+    display: none;
   }
 }

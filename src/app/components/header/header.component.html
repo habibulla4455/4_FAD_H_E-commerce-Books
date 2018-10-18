@@ -1,28 +1,31 @@
 <header>
   <div class="container">
     <div class="headerContainer">
-    <h1>BOOKSBASE</h1>
-    <p *ngIf="authService.user">Welcome {{authService.user.email}}</p>
-    <ul>
-      <li>
-        <a routerLink="books" (click)="resetBookEdit()">Explore</a>
-      </li>
-      <li *ngIf="authService.user">
-        <a routerLink="readlist" (click)="resetBookEdit()">Reading list</a>
-      </li>
-      <li *ngIf="authService.user">
-        <a routerLink="userbooks" (click)="resetBookEdit()">My books</a>
-      </li>
-      <li *ngIf="authService.user">
-        <a routerLink="addbook" (click)="resetBookEdit()">Add book</a>
-      </li>
-      <li *ngIf="!authService.user">
-        <a routerLink="login">Log in/Register</a>
-      </li>
-      <li *ngIf="authService.user">
-        <a (click)="logOut()">Log out</a>
-      </li>
-    </ul>
+      <div class="titleAndMenuBttn">
+        <img class="toggleMenu" src="assets/images/menu_toggle.jpg" height="32" width="50"/>
+        <h1>BOOKSBASE</h1>
+      </div>
+      <p *ngIf="authService.user">Welcome {{authService.user.email}}</p>
+      <ul>
+        <li>
+          <a routerLink="books" (click)="resetBookEdit()">Explore</a>
+        </li>
+        <li *ngIf="authService.user">
+          <a routerLink="readlist" (click)="resetBookEdit()">Reading list</a>
+        </li>
+        <li *ngIf="authService.user">
+          <a routerLink="userbooks" (click)="resetBookEdit()">My books</a>
+        </li>
+        <li *ngIf="authService.user">
+          <a routerLink="addbook" (click)="resetBookEdit()">Add book</a>
+        </li>
+        <li *ngIf="!authService.user">
+          <a routerLink="login">Log in/Register</a>
+        </li>
+        <li *ngIf="authService.user">
+          <a (click)="logOut()">Log out</a>
+        </li>
+      </ul>
     </div>
   </div>
 </header>

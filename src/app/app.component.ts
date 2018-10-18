@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -6,20 +6,42 @@ import {Router} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   menuVisible = false;
+  menuPos = -300;
 
   constructor(private router: Router) {
 
   }
 
-  menuStateChanged(menuVis: boolean) {
-    this.menuVisible = menuVis;
+  ngOnInit() {
+    if (window.innerWidth > 1780) {
+      this.menuPos = 0;
+    }
   }
 
-  navigateToCategory(category: string) {
-    this.router.navigate(['bookscategory/' + category]);
-    this.menuVisible = false;
+  menuStateChanged(menuVis: boolean) {
+    this.menuVisible = menuVis;
+    if(this.menuVisible) {
+      this.menuPos= 0;
+    } else {
+      if(window.innerWidth <=  1780 ) {
+        this.menuPos = -300;
+      }
+    }
+
   }
+
+  onResize() {
+    if(window.innerWidth > 1780) {
+      this.menuPos = 0;
+      this.menuVisible = false;
+    } else {
+      if(!this.menuVisible) {
+        this.menuPos = -300;
+      }
+    }
+  }
+
 }

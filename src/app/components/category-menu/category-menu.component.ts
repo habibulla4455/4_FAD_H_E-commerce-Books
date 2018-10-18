@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,6 +8,8 @@ import {Router} from '@angular/router';
 })
 export class CategoryMenuComponent implements OnInit {
 
+  @Output() menuVisState = new EventEmitter<boolean>();
+
   constructor(private router: Router) {
   }
 
@@ -16,5 +18,6 @@ export class CategoryMenuComponent implements OnInit {
 
   navigateToCategory(category: string) {
     this.router.navigate(['bookscategory/' + category]);
+    this.menuVisState.emit(false);
   }
 }

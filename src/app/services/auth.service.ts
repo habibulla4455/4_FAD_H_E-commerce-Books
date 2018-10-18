@@ -13,6 +13,7 @@ export class AuthService {
   user: User;
   loginFailed = new BehaviorSubject<boolean>(false);
   registerFailed = new BehaviorSubject<boolean>(false);
+  userLoggedOut = new BehaviorSubject<boolean>(false);
 
   constructor(
     private angularFire: AngularFireAuth,
@@ -47,8 +48,13 @@ export class AuthService {
   logOut() {
     this.angularFire.auth.signOut()
       .then(() => {
+        this.userLoggedOut.next(true);
         this.router.navigate(['/books']);
       });
+  }
+
+  getUserLoggedOutStatus(): Observable<boolean> {
+    return this.userLoggedOut.asObservable();
   }
 
   getLoginStatus(): Observable<boolean> {
@@ -62,6 +68,7 @@ export class AuthService {
   resetLoginRegisterStatus() {
     this.loginFailed.next(false);
     this.registerFailed.next(false);
+    this.userLoggedOut.next(false);
   }
 
 }

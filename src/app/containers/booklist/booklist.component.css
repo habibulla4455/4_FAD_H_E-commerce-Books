@@ -17,3 +17,42 @@
   height: 35px;
   background: rgb(232, 252, 255);
 }
+
+.confrimSignOutPopup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.confrimSignOutWindow {
+  border: 1px solid black;
+  padding: 20px;
+  background: lightgray;
+}
+
+.confrimSignOutBttn {
+  display: block;
+  margin: 15px auto 5px auto;
+  width: 280px;
+  padding: 10px;
+  background-color: cornflowerblue;
+  color: white;
+  border: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.confrimSignOutBttn:hover {
+  background-color: blue;
+  font-size: 20px;
+}

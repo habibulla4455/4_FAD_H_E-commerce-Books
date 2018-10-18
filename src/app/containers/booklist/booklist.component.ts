@@ -3,6 +3,7 @@ import {DatabaseService} from '../../services/database.service';
 import {Book} from '../../model/book';
 import {EditBookService} from '../../services/edit-book.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-booklist',
@@ -14,8 +15,13 @@ export class BooklistComponent implements OnInit {
   booksList = new BooksWithCategories();
   booksSearched: Array<Book>;
   searchPhrase = '';
+  loggedOfStatus = false;
 
-  constructor(private dbService: DatabaseService, private router: Router) {
+  constructor(
+    private dbService: DatabaseService,
+    private router: Router,
+    private authService: AuthService
+  ) {
   }
 
   ngOnInit() {
@@ -65,6 +71,9 @@ export class BooklistComponent implements OnInit {
       this.booksList.travel = books.filter(book => {
         return book.category === 'travel';
       });
+    });
+    this.authService.getUserLoggedOutStatus().subscribe( status => {
+      this.loggedOfStatus = status;
     });
   }
 

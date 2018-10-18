@@ -103,3 +103,9 @@
     <app-book-pos [booksList]="booksSearched"></app-book-pos>
   </ng-container>
 </div>
+<div *ngIf="loggedOfStatus" class="confrimSignOutPopup">
+  <div class="confrimSignOutWindow">
+    <p>You have been successfully signed out and redirected to the main page.</p>
+    <button type="button" class="confrimSignOutBttn" (click)="loggedOfStatus=false">OK</button>
+  </div>
+</div>

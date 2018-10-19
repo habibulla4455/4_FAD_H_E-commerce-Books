@@ -27,4 +27,4 @@ I wanted to create application which allows me to develop my Angular skills. Thi
 many angular features. 
 
 
-![First screenshot](/git_images/1.PNG){:height="50%" width="50%"}
+<img width="200" alt="portfolio_view" src="/git_images/1.PNG">

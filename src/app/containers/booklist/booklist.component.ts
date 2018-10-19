@@ -72,9 +72,14 @@ export class BooklistComponent implements OnInit {
         return book.category === 'travel';
       });
     });
-    this.authService.getUserLoggedOutStatus().subscribe( status => {
+    this.authService.getUserLoggedOutStatus().subscribe(status => {
       this.loggedOfStatus = status;
     });
+  }
+
+  confirmSingOut() {
+    this.loggedOfStatus = false;
+    this.authService.resetLoginRegisterStatus();
   }
 
   searchChange() {

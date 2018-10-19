@@ -11,7 +11,7 @@
       *ngIf="booksList.actionAndAdventure && booksList.actionAndAdventure.length > 0"
       [books]="booksList.actionAndAdventure"
       [linkTo]="'actionadventure'"
-      [categoryName]="'Action and Adventure'">
+      [categoryName]="'Action, Adventure'">
     </app-book-cat-container>
     <app-book-cat-container
       *ngIf="booksList.fantasySciFi && booksList.fantasySciFi.length > 0"
@@ -106,6 +106,6 @@
 <div *ngIf="loggedOfStatus" class="confrimSignOutPopup">
   <div class="confrimSignOutWindow">
     <p>You have been successfully signed out and redirected to the main page.</p>
-    <button type="button" class="confrimSignOutBttn" (click)="loggedOfStatus=false">OK</button>
+    <button type="button" class="confrimSignOutBttn" (click)="confirmSingOut()">OK</button>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <section class="categoryContainer" (window:resize)="onResize()">
   <h2 (click)="redirectToCategory()">{{categoryName}}</h2>
   <div class="booksContainer">
-    <span class="changePicButton" (click)="goRight()" [style.opacity]="leftBttnVisible"><</span>
+    <span class="changePicButton bttnLeft" (click)="goRight()" [style.opacity]="leftBttnVisible"><</span>
     <div class="listContainer" #listContainer>
       <ul class="booksList" [style.width]="bookListWidth + 'px'" [style.left]="bookListPos + 'px'">
         <li class="bookPosition" *ngFor="let book of books" routerLink="{{book.key}}">
@@ -12,6 +12,6 @@
         </li>
       </ul>
     </div>
-    <span class="changePicButton" (click)="goLeft()" [style.opacity]="rightBttonVisible">></span>
+    <span class="changePicButton bttnRight" (click)="goLeft()" [style.opacity]="rightBttonVisible">></span>
   </div>
 </section>

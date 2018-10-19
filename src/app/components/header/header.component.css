@@ -1,5 +1,7 @@
 header {
-  border-bottom: 3px solid black;
+   border-bottom: 1px solid grey;
+  background: cornflowerblue;
+  color: white;
 }
 
 .headerContainer {
@@ -34,10 +36,14 @@ li {
 
 li:hover {
   padding: 5px;
-  background-color: cornflowerblue;
-  color: white;
+  background-color: white;
+  color: cornflowerblue;
+  font-weight: bold;
 }
 
+a.active {
+  font-weight: bold;
+}
 
 p {
   display: flex;
@@ -94,10 +100,6 @@ p {
   li {
     margin-bottom: 10px;
   }
-
-/*  .toggleMenu {
-    display: none;
-  }*/
 }
 
 @media (min-width: 1781px) {

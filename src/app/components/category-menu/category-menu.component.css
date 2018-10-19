@@ -1,17 +1,18 @@
 .sideMenu {
-  width: 300px;
-  background: rgba(251, 251, 251, 0.9);
-  border-right: 1px solid lightgray;
+  width: 250px;
+  background: rgba(241, 241, 241, 0.9);
+  border-right: 1px solid cornflowerblue;
   height: 100vh;
   transition: 0.5s;
   overflow: auto;
 }
 
 h2 {
-  margin-top: 75px;
+  background-color: cornflowerblue;
+  color: white;
   padding-left: 10px;
-  padding-top: 10px;
-  border-top: 3px solid black;
+  padding-top: 51px;
+  border-bottom: 1px solid grey;
 }
 
 ul {

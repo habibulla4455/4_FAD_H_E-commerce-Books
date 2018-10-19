@@ -1,11 +1,11 @@
 .booksContainer {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid lightgray;
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px 0;
+  position: relative;
 }
 
 h2 {
@@ -20,20 +20,34 @@ h2:hover {
 }
 
 .changePicButton {
-  font-size: 40px;
+  font-size: 45px;
   cursor: pointer;
   transition: 0.5s;
-  background-color: rgb(241, 241, 241);
-  border: 1px solid rgb(195, 195, 195);
-  padding: 15px 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px 10px;
   border-radius: 5px;
+  position: absolute;
 }
 
 .changePicButton:hover {
   color: white;
   background-color: cornflowerblue;
+  border: 1px solid rgb(195, 195, 195);
 }
 
+.bttnLeft {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3px;
+  z-index: 4;
+}
+
+.bttnRight {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 3px;
+}
 .listContainer {
   flex-grow: 1;
   overflow: hidden;
@@ -46,6 +60,7 @@ h2:hover {
   height: 270px;
   position: relative;
   transition: 0.5s;
+
 }
 
 .bookPosition {

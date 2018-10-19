@@ -14,22 +14,51 @@ detailed book data.
 When user sign in, new features are available:
  -  add new book to the system,
  -  manage user books added to the system (modify/delete),
- -  create own reading list (system additionally remembers books already read).
+ -  add books to the reading list, manage the list, put book on already read list.
  
- System indicates to the signed user, when the book displayed is on his reading list. Screenshots below
- show general look of the application. 
+ System indicates to the signed user, when the book displayed on the screen is on his reading list (with small
+ blue icon on top-right corner of the book).
  
  
 
-#Purpose and technology
+# Purpose and technology
+
+## Angular6, Angular-CLI
 
 I wanted to create application which allows me to develop my Angular skills. This application allows to use
-many angular features. 
+many angular features, some of the ones used are:
+- angular directives, pipes
+- template driven forms (used in log in/ register section),
+- reactive forms (dynamically generated forms with formArray, used in add book page),
+- routing (for general site navigation),
+- authGuard (for protecting unregistered users from visiting URLs not accessible for them),
+- usage of services combined with RxJS (for better data accessibility and storage of business logic,
+ RxJS observables allowed for easy data access for other components and quick reaction on changes),
+- angularFire library (for easy firebase database and authentication access).
 
+Angular-CLI was used to create new project and to create important parts of the application, like components,
+services etc. It was also used to develop application locally and to generate production build (ahead of time).
 
-<img width="750" alt="gallery_1" src="/git_images/1.PNG">
-<img width="750" alt="gallery_2" src="/git_images/2.PNG">
-<img width="750" alt="gallery_3" src="/git_images/3.PNG">
-<img width="750" alt="gallery_4" src="/git_images/4.PNG">
-<img width="750" alt="gallery_5" src="/git_images/5.PNG">
-<img width="750" alt="gallery_6" src="/git_images/6.PNG">
+## Google Firebase
+
+Usage of google firebase allowed me to have backend part of the application.
+
+I used realtime database storage to store information about books, and users reading lists in JSON format.
+
+Firebase authentication was used for log in/register functionality.
+
+Firebase hosting is used to store production build of the application, which is available for everyone. 
+
+## CSS and animations
+
+As default CSS provides nice look of the developed application. I used extensively css animations to make site
+more reactive, when user moves cursor over the page and clicks on buttons, explores other site sections. 
+
+# Application general look
+
+<img alt="gallery_1" src="/git_images/1.PNG">
+<img alt="gallery_2" src="/git_images/2.PNG">
+<img alt="gallery_3" src="/git_images/3.PNG">
+<img alt="gallery_4" src="/git_images/4.PNG">
+<img alt="gallery_5" src="/git_images/5.PNG">
+<img alt="gallery_6" src="/git_images/6.PNG">

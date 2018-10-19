@@ -43,15 +43,36 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 25px;
 }
 
 .toggleMenu:hover {
   cursor: pointer;
 }
 
-@media( max-width: 1040px ) {
+@media( max-width: 1060px) {
+  .titleAndMenuBttn {
+    display: block;
+  }
+
+  h1 {
+    display: inline-block;
+  }
+
+  p {
+    margin-left: 60px;
+    margin-bottom: 5px;
+  }
+}
+
+
+
+@media( max-width: 795px ) {
+  .titleAndMenuBttn {
+    text-align: center;
+  }
+
   .headerContainer {
-    padding: 15px;
     display: block;
   }
 
@@ -60,10 +81,20 @@ p {
     margin-bottom: 10px;
   }
 
+  p {
+    margin: 0;
+  }
+
   ul {
-    margin-top: 15px;
+    width: 300px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px auto 0 auto;
+  }
+
+  li {
+    margin-bottom: 10px;
   }
 
   .toggleMenu {

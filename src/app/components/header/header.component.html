@@ -9,8 +9,8 @@
           (click)="toggleMenuState()"
         />
         <h1>BOOKSBASE</h1>
+        <p *ngIf="authService.user">Welcome {{authService.user.email}}</p>
       </div>
-      <p *ngIf="authService.user">Welcome {{authService.user.email}}</p>
       <ul>
         <li>
           <a routerLink="books" (click)="resetBookEdit()">Explore</a>

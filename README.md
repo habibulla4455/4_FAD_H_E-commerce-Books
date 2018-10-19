@@ -27,4 +27,9 @@ I wanted to create application which allows me to develop my Angular skills. Thi
 many angular features. 
 
 
-<img width="200" alt="portfolio_view" src="/git_images/1.PNG">
+<img width="400" alt="gallery_1" src="/git_images/1.PNG">
+<img width="400" alt="gallery_2" src="/git_images/2.PNG">
+<img width="400" alt="gallery_3" src="/git_images/3.PNG">
+<img width="400" alt="gallery_4" src="/git_images/4.PNG">
+<img width="400" alt="gallery_5" src="/git_images/5.PNG">
+<img width="400" alt="gallery_6" src="/git_images/6.PNG">

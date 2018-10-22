@@ -68,6 +68,12 @@ and it's configured in a way to maintain site responsiveness. Few examples are s
 <img alt="gallery_rwd_2" src="/git_images/13.PNG">
 <img alt="gallery_rwd_3" src="/git_images/14.PNG">
 
+# Angular 7 update
+
+As angular version 7 released in the middle of site production - project has been migrated to the newest version. 
+Everything is working properly - soon i'll try to add some new functions which were added in
+angular 7.
+
 # Application general look
 
 <img alt="gallery_1" src="/git_images/1.PNG">

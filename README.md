@@ -19,7 +19,6 @@ When user sign in, new features are available:
  System indicates to the signed user, when the book displayed on the screen is on his reading list (with small
  blue icon on top-right corner of the book).
  
- 
 
 # Purpose and technology
 
@@ -53,6 +52,21 @@ Firebase hosting is used to store production build of the application, which is 
 
 As default CSS provides nice look of the developed application. I used extensively css animations to make site
 more reactive, when user moves cursor over the page and clicks on buttons, explores other site sections. 
+
+## RWD
+
+Site is  fully responsive - from the largest screens to the narrowest displays of the phones. Site is built 
+on bease of few breakpoints which change the way content is displayed:
+* For the largest screens menu with book categories is displayed all the time on the left, main container width is set in percetange, 
+not in static value
+* When display is to narrow to show menu all the time, 'hamburger' menu button is shown to display
+it.
+* header contains 3 breakpoints to always display data correctly, footer has 2.
+* different site sections have some breakpoints if necessary. I used flex box extensively
+and it's configured in a way to maintain site responsiveness. Few examples are shown below.
+<img alt="gallery_rwd_1" src="/git_images/12.PNG">
+<img alt="gallery_rwd_2" src="/git_images/13.PNG">
+<img alt="gallery_rwd_3" src="/git_images/14.PNG">
 
 # Application general look
 

@@ -1,4 +1,5 @@
 <div class="userBooksContainer">
+  <h2 *ngIf="booksList.length === 0">No books were added yet in here.</h2>
   <div class="bookPosition" *ngFor="let book of booksList" (click)="redirect(book.key)">
     <img class="bookPosImage" src="{{book.imageUrl}}"/>
     <img *ngIf="checkIfOnTheList(book.key)" class="bookOnList" src="assets/images/on_list.jpg"/>
